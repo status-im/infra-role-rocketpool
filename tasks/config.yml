@@ -1,0 +1,17 @@
+---
+- name: Create RocketPool settings dir
+  file:
+    path: "/var/rocketpool/"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create RocketPool settings file
+  template:
+    src: 'settings.yml.j2'
+    dest: '/var/rocketpool/settings.yml'
+    owner: root
+    group: root
+    mode: 0644
+

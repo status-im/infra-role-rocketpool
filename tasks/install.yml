@@ -1,0 +1,23 @@
+---
+- name: Create RocketPool destination dir
+  file:
+    path: "/opt/rocketpool/{{ rocketpool_smart_node_version }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Download RocketPool installer binary
+  get_url:
+    url: "https://github.com/rocket-pool/smartnode-install/releases/download/{{rocketpool_smart_node_version}}/rocketpool-cli-linux-amd64"
+    dest: "/opt/rocketpool/{{ rocketpool_smart_node_version }}/rocketpool"
+    mode: 0755
+
+- name: Create RocketPool wrapper script
+  template:
+    src: 'rocketpool_wrapper.j2'
+    dest: '/usr/local/bin/rocketpool'
+    owner: root
+    group: root
+    mode: 0755
+

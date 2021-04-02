@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: Zahary Karadjov <zahary@status.im>
+  description: Setup a Nimbus-based RocketPool smart node
+  company: Status.im
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - xenial
+

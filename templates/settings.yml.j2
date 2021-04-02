@@ -1,0 +1,20 @@
+chains:
+  eth1:
+    client:
+      selected: "{{ "geth" if rocketpool_smart_node_web3_url == '' else "custom" }}"
+      params:
+      - env: INFURA_PROJECT_ID
+        value: ""
+      - env: ETHSTATS_LABEL
+        value: ""
+      - env: ETHSTATS_LOGIN
+        value: ""
+      - env: PROVIDER_URL
+        value: "{{rocketpool_smart_node_web3_url}}"
+  eth2:
+    client:
+      selected: nimbus
+      params:
+      - env: CUSTOM_GRAFFITI
+        value: "{{rocketpool_smart_node_eth2_graffiti}}"
+
