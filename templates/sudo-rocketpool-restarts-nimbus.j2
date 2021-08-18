@@ -1,0 +1,6 @@
+# Cmnd alias specification
+Cmnd_Alias RP_CMDS = /usr/bin/systemctl restart {{ rocketpool_eth2_service_name }}
+
+# User privilege specification
+{{ rocketpool_user }}    ALL=(ALL) NOPASSWD: RP_CMDS
+

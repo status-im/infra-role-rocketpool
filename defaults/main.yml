@@ -1,8 +1,17 @@
 ---
-rocketpool_smart_node_version: '1.0.0-beta.1'
-rocketpool_smart_node_web3_url: '' # When empty, the smart node will use its own Geth instance
-rocketpool_smart_node_eth2_graffiti: '' # Nimbus-compatible graffiti string
-rocketpool_smart_node_eth2_libp2p_port: 9001
-rocketpool_smart_node_eth2_discovery_port: 9001
-rocketpool_smart_node_geth_listening_port: 8545
-
+rocketpool_version: 'v1.0.0-rc6dev'
+rocketpool_web3_url: '' # Required
+rocketpool_web3_ws_url: '' # Required
+rocketpool_graffiti: '' # Nimbus-compatible graffiti string
+rocketpool_user: 'rocketpool'
+rocketpool_group: 'rocketpool'
+rocketpool_data_prefix: '/srv/rocketpool'
+rocketpool_node_service_name: 'rocketpool-node'
+rocketpool_watchtower_service_name: 'rocketpool-watchtower'
+rocketpool_eth2_network: 'prater'
+rocketpool_eth2_service_name: 'rocketpool-eth2'
+rocketpool_eth2_libp2p_port: 59001
+rocketpool_eth2_discovery_port: 59001
+rocketpool_eth2_metrics_port: 58008
+rocketpool_eth2_rest_port: 55052
+rocketpool_eth2_rpc_port: 59190

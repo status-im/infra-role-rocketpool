@@ -1,0 +1,47 @@
+---
+- name: Rocket Pool bin directory
+  file:
+    state: directory
+    path: '/opt/rocketpool/{{ rocketpool_version }}/bin'
+
+- name: Download Rocket Pool daemon
+  get_url:
+    url: 'https://github.com/rocket-pool/smartnode-install/releases/download/{{ rocketpool_version }}/rocketpool-daemon-linux-amd64'
+    dest: '/opt/rocketpool/{{ rocketpool_version }}/bin/rocketpool-daemon-linux-amd64'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode: 0755
+
+- name: Download Rocket Pool CLI
+  get_url:
+    url: 'https://github.com/rocket-pool/smartnode-install/releases/download/{{ rocketpool_version }}/rocketpool-cli-linux-amd64'
+    dest: '/opt/rocketpool/{{ rocketpool_version }}/bin/rocketpool-cli-linux-amd64'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode: 0755
+
+- name: Create RocketPool wrapper script
+  template:
+    src: 'rocketpool-wrapper-script.j2'
+    dest: '/usr/local/bin/rocketpool'
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create RocketPool daemon binary symlink
+  file:
+    state: link
+    src: '/opt/rocketpool/{{ rocketpool_version }}/bin/rocketpool-daemon-linux-amd64'
+    dest: '/usr/local/bin/rocketpoold'
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create validator restart script
+  template:
+    src: 'validator-restart-command.j2'
+    dest: '/opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode: 0755
+

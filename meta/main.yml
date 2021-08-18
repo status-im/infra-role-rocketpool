@@ -9,4 +9,7 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - xenial
-
+  dependencies:
+  - name: infra-role-beacon-node-linux
+    src: 'git+git@github.com:status-im/infra-role-beacon-node-linux.git'
+    scm: 'git'

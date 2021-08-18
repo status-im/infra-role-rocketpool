@@ -39,12 +39,11 @@ Add to your `requirements.yml` file:
 The supported settings are:
 
 ```yaml
-rocketpool_smart_node_version: '1.0.0-beta.1'
-rocketpool_smart_node_web3_url: '' # When empty, the smart node will use its own Geth instance
-rocketpool_smart_node_eth2_graffiti: '' # Nimbus-compatible graffiti string
-rocketpool_smart_node_eth2_libp2p_port: 9001
-rocketpool_smart_node_eth2_discovery_port: 9001
-rocketpool_smart_node_geth_listening_port: 8545
+rocketpool_version: '1.0.0-beta.1'
+rocketpool_web3_url: '' # When empty, the smart node will use its own Geth instance
+rocketpool_graffiti: '' # Nimbus-compatible graffiti string
+rocketpool_eth2_libp2p_port: 9001
+rocketpool_eth2_discovery_port: 9001
 ```
 
 # Requirements

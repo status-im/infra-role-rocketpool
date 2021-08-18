@@ -1,0 +1,6 @@
+# Allow the dev team to start Rocketpool builds with sudo:
+%{{ rocketpool_group }} ALL= NOPASSWD: /usr/bin/systemctl *status rocketpool-build*
+%{{ rocketpool_group }} ALL= NOPASSWD: /usr/bin/systemctl *start rocketpool-build*
+%{{ rocketpool_group }} ALL= NOPASSWD: /usr/bin/systemctl *stop rocketpool-build*
+%{{ rocketpool_group }} ALL= NOPASSWD: /usr/bin/systemctl *restart rocketpool-build*
+

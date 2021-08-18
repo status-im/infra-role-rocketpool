@@ -1,0 +1,5 @@
+# Allow non-root users logging in as the rocketpool nimbus user
+
+%{{ rocketpool_group }} ALL= NOPASSWD: /bin/su – {{ rocketpool_user }}
+%{{ rocketpool_group }} ALL=({{ rocketpool_user }}) NOPASSWD: ALL
+

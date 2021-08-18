@@ -1,0 +1,15 @@
+---
+- name: Create systemd Unit file
+  template:
+    src: 'rocketpool-watchtower.service.j2'
+    dest: '/etc/systemd/system/{{ rocketpool_watchtower_service_name }}.service'
+    mode: 0644
+
+- name: Reload systemctl
+  command: systemctl daemon-reload
+
+- name: Restart the service
+  service:
+    name: '{{ rocketpool_watchtower_service_name }}.service'
+    state: 'restarted'
+    enabled: true

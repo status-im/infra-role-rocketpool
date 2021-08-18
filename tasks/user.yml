@@ -1,0 +1,29 @@
+---
+- name: Create a rocketpool group
+  group:
+    name: '{{ rocketpool_group }}'
+
+- name: Create a rocketpool user
+  user:
+    name: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    shell: '/bin/bash'
+
+- name: Sudoers file to let non-root users start jobs
+  template:
+    src: 'sudo-builds.j2'
+    dest: '/etc/sudoers.d/80-rocketpool-builds'
+    mode: 0440
+
+- name: Sudoers file for login as the rocketpool user
+  template:
+    src: 'sudo-login-as-rocketpool.j2'
+    dest: '/etc/sudoers.d/81-rocketpool-login'
+    mode: 0440
+
+- name: Sudoers file allowing RocketPool to restart Nimbus
+  template:
+    src: 'sudo-rocketpool-restarts-nimbus.j2'
+    dest: '/etc/sudoers.d/82-rocketpool-restarts-nimbus'
+    mode: 0440
+

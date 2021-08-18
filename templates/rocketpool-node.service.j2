@@ -1,0 +1,16 @@
+[Unit]
+Description=RocketPool node
+After=network.target
+
+[Service]
+Type=simple
+User={{ rocketpool_user }}
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/rocketpoold \
+  --config {{ rocketpool_data_prefix }}/config.yml \
+  --settings {{ rocketpool_data_prefix }}/settings.yml \
+  node
+
+[Install]
+WantedBy=multi-user.target

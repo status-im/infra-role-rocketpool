@@ -1,0 +1,16 @@
+---
+- name: Create systemd Unit file
+  template:
+    src: 'rocketpool-node.service.j2'
+    dest: '/etc/systemd/system/{{ rocketpool_node_service_name }}.service'
+    mode: 0644
+
+- name: Reload systemctl
+  command: systemctl daemon-reload
+
+- name: Restart the service
+  service:
+    name: '{{ rocketpool_node_service_name }}.service'
+    state: 'restarted'
+    enabled: true
+
