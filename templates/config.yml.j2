@@ -99,7 +99,7 @@ chains:
           env: WS_PROVIDER_URL
           required: true
   eth2:
-    provider: 127.0.0.1:{{ rocketpool_eth2_rest_port }}
+    provider: http://127.0.0.1:{{ rocketpool_eth2_rpc_port }}
     client:
       options:
       - id: lighthouse

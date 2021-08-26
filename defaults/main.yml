@@ -1,5 +1,5 @@
 ---
-rocketpool_version: 'v1.0.0-rc6dev'
+rocketpool_version: 'v1.0.0-rc7'
 rocketpool_web3_url: '' # Required
 rocketpool_web3_ws_url: '' # Required
 rocketpool_graffiti: '' # Nimbus-compatible graffiti string
