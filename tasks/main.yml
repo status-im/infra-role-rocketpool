@@ -1,6 +1,6 @@
 ---
-- import_tasks: eth2-service.yml
 - import_tasks: user.yml
+- import_tasks: eth2-service.yml
 - import_tasks: binaries.yml
 - import_tasks: config.yml
 - import_tasks: node-service.yml
