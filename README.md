@@ -29,8 +29,8 @@ or `rocketpool wallet init`.
 
 Add to your `requirements.yml` file:
 ```yaml
-- name: infra-role-rocketpool-smart-node
-  src: git+git@github.com:status-im/infra-role-rocketpool-smart-node.git
+- name: infra-role-rocketpool
+  src: git+git@github.com:status-im/infra-role-rocketpool.git
   scm: git
 ```
 
