@@ -26,4 +26,3 @@
     src: 'sudo-rocketpool-restarts-nimbus.j2'
     dest: '/etc/sudoers.d/82-rocketpool-restarts-nimbus'
     mode: 0440
-

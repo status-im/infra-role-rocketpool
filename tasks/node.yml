@@ -13,4 +13,3 @@
     name: '{{ rocketpool_node_service_name }}.service'
     state: 'restarted'
     enabled: true
-

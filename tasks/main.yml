@@ -1,8 +1,7 @@
 ---
 - import_tasks: user.yml
-- import_tasks: eth2-service.yml
-- import_tasks: binaries.yml
+- import_tasks: eth2.yml
+- import_tasks: install.yml
 - import_tasks: config.yml
-- import_tasks: node-service.yml
-- import_tasks: watchtower-service.yml
-
+- import_tasks: node.yml
+- import_tasks: watchtower.yml

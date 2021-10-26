@@ -1,24 +1,19 @@
 ---
 - name: Create RocketPool root settings dir
   file:
-    path: '{{ rocketpool_data_prefix }}'
+    path: 
     state: directory
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0755
-
-- name: Create RocketPool data dir
-  file:
-    path: '{{ rocketpool_data_prefix }}/data'
-    state: directory
-    owner: '{{ rocketpool_user }}'
-    group: '{{ rocketpool_group }}'
-    mode: 0755
+  with_items:
+    - '{{ rocketpool_service_path }}'
+    - '{{ rocketpool_data_path }}'
 
 - name: Create RocketPool settings file
   template:
     src: 'settings.yml.j2'
-    dest: '{{ rocketpool_data_prefix }}/settings.yml'
+    dest: '{{ rocketpool_service_path }}/settings.yml'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0644
@@ -26,8 +21,7 @@
 - name: Create RocketPool config file
   template:
     src: 'config.yml.j2'
-    dest: '{{ rocketpool_data_prefix }}/config.yml'
+    dest: '{{ rocketpool_service_path }}/config.yml'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0644
-

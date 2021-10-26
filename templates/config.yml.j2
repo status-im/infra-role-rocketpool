@@ -7,9 +7,9 @@ smartnode:
   projectName: rocketpool
   graffitiVersion: v1.0.0-rc5
   image: rocketpool/smartnode:v1.0.0-rc5
-  passwordPath: {{ rocketpool_data_prefix }}/data/password
-  walletPath: {{ rocketpool_data_prefix }}/data/wallet
-  validatorKeychainPath: {{ rocketpool_data_prefix }}/data/validators
+  passwordPath: {{ rocketpool_data_path }}/password
+  walletPath: {{ rocketpool_data_path }}/wallet
+  validatorKeychainPath: {{ rocketpool_data_path }}/validators
   validatorRestartCommand: "/opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh"
   gasPrice: 0 # The desired gas price, in gwei, to use for transactions. Set it to 0 to use the network's average price.
   rplClaimGasThreshold: 150 # Automatic RPL reward claims will wait until the network's average gas price, in gwei, is below this limit.
@@ -17,8 +17,8 @@ smartnode:
   txWatchUrl: https://goerli.etherscan.io/tx
 chains:
   eth1:
-    provider: {{ rocketpool_web3_url }}
-    wsProvider: {{ rocketpool_web3_ws_url }}
+    provider: {{ rocketpool_eth2_web3_rpc_url }}
+    wsProvider: {{ rocketpool_eth2_web3_ws_url }}
     mainnetProvider: {{ rocketpool_web3_url }}
     chainID: 5 # Goerli
     client:

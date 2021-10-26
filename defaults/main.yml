@@ -1,15 +1,23 @@
 ---
-rocketpool_version: 'v1.0.0-rc7'
-rocketpool_web3_url: '' # Required
-rocketpool_web3_ws_url: '' # Required
-rocketpool_graffiti: '' # Nimbus-compatible graffiti string
+rocketpool_service_name: 'rocketpool'
+rocketpool_service_path: '/data/{{ rocketpool_service_name }}'
+
 rocketpool_user: 'rocketpool'
 rocketpool_group: 'rocketpool'
-rocketpool_data_prefix: '/srv/rocketpool'
-rocketpool_node_service_name: 'rocketpool-node'
-rocketpool_watchtower_service_name: 'rocketpool-watchtower'
+
+rocketpool_version: 'v1.0.0-rc7'
+
+rocketpool_graffiti: '' # Nimbus-compatible graffiti string
+rocketpool_data_path: '{{ rocketpool_service_path }}/data'
+rocketpool_node_service_name: '{{ rocketpool_service_name }}-node'
+rocketpool_watchtower_service_name: '{{ rocketpool_service_name }}-watchtower'
+
+# Required for Eth1 sync
+#rocketpool_eth2_web3_rpc_url: ~
+#rocketpool_eth2_web3_ws_url: ~
+
 rocketpool_eth2_network: 'prater'
-rocketpool_eth2_service_name: 'rocketpool-eth2'
+rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2'
 rocketpool_eth2_libp2p_port: 59001
 rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008

@@ -8,8 +8,8 @@ User={{ rocketpool_user }}
 Restart=always
 RestartSec=5
 ExecStart=/usr/local/bin/rocketpoold \
-  --config {{ rocketpool_data_prefix }}/config.yml \
-  --settings {{ rocketpool_data_prefix }}/settings.yml \
+  --config {{ rocketpool_service_path }}/config.yml \
+  --settings {{ rocketpool_service_path }}/settings.yml \
   node
 
 [Install]
