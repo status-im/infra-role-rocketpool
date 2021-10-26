@@ -7,7 +7,7 @@ smartnode:
   projectName: rocketpool
   graffitiVersion: v1.0.0-rc5
   image: rocketpool/smartnode:v1.0.0-rc5
-  passwordPath: {{ rocketpool_data_path }}/password
+  passwordPath: {{ rocketpool_password_file }}
   walletPath: {{ rocketpool_data_path }}/wallet
   validatorKeychainPath: {{ rocketpool_data_path }}/validators
   validatorRestartCommand: "/opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh"

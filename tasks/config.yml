@@ -21,23 +21,18 @@
     - 'settings.yml'
     - 'config.yml'
 
-- name: Check if password file exists
-  stat:
-    path: '{{ rocketpool_data_path }}/password'
-  register: password_file
-
-- name: Generate RocketPool password
-  set_fact:
-    rocketpool_password: |-
-      {{ lookup("password", "/dev/null length=30 chars=ascii_letters") }}
-  when: |-
-    not password_file.stat.exists and
-    rocketpool_password is not defined
-
 - name: Create RocketPool password file
   copy:
-    dest: '{{ rocketpool_data_path }}/password'
+    dest: '{{ rocketpool_password_file }}'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
-    mode: 0644
-    content: '{{ rocketpool_password }}'
+    mode: 0400
+    content: '{{ rocketpool_password | mandatory }}'
+
+- name: Create RocketPool wallet file
+  copy:
+    dest: '{{ rocketpool_wallet_file }}'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode: 0400
+    content: '{{ rocketpool_wallet | mandatory }}'
