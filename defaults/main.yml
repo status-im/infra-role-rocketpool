@@ -12,6 +12,9 @@ rocketpool_data_path: '{{ rocketpool_service_path }}/data'
 rocketpool_node_service_name: '{{ rocketpool_service_name }}-node'
 rocketpool_watchtower_service_name: '{{ rocketpool_service_name }}-watchtower'
 
+# Generated randomly if not set
+#rocketpool_password: ~
+
 # Required for Eth1 sync
 #rocketpool_eth2_web3_http_url: ~
 #rocketpool_eth2_web3_ws_url: ~

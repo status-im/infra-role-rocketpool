@@ -1,27 +1,43 @@
 ---
 - name: Create RocketPool root settings dir
   file:
-    path: 
-    state: directory
+    path: '{{ item }}'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0755
+    state: directory
   with_items:
     - '{{ rocketpool_service_path }}'
     - '{{ rocketpool_data_path }}'
 
-- name: Create RocketPool settings file
+- name: Create RocketPool config files
   template:
-    src: 'settings.yml.j2'
-    dest: '{{ rocketpool_service_path }}/settings.yml'
+    src: '{{ item }}.j2'
+    dest: '{{ rocketpool_service_path }}/{{ item }}'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0644
+  with_items:
+    - 'settings.yml'
+    - 'config.yml'
 
-- name: Create RocketPool config file
-  template:
-    src: 'config.yml.j2'
-    dest: '{{ rocketpool_service_path }}/config.yml'
+- name: Check if password file exists
+  stat:
+    path: '{{ rocketpool_data_path }}/password'
+  register: password_file
+
+- name: Generate RocketPool password
+  set_fact:
+    rocketpool_password: |-
+      {{ lookup("password", "/dev/null length=30 chars=ascii_letters") }}
+  when: |-
+    not password_file.stat.exists and
+    rocketpool_password is not defined
+
+- name: Create RocketPool password file
+  copy:
+    dest: '{{ rocketpool_data_path }}/password'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0644
+    content: '{{ rocketpool_password }}'
