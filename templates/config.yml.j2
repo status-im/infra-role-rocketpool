@@ -17,9 +17,9 @@ smartnode:
   txWatchUrl: https://goerli.etherscan.io/tx
 chains:
   eth1:
-    provider: {{ rocketpool_eth2_web3_rpc_url }}
+    provider: {{ rocketpool_eth2_web3_http_url }}
     wsProvider: {{ rocketpool_eth2_web3_ws_url }}
-    mainnetProvider: {{ rocketpool_web3_url }}
+    mainnetProvider: {{ rocketpool_eth2_web3_http_url }}
     chainID: 5 # Goerli
     client:
       options:

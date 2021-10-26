@@ -1,7 +1,7 @@
 chains:
   eth1:
     client:
-      selected: "{{ "geth" if rocketpool_web3_url == '' else "custom" }}"
+      selected: "{{ "geth" if rocketpool_eth2_web3_http_url == '' else "custom" }}"
       params:
       - env: INFURA_PROJECT_ID
         value: ""
@@ -10,7 +10,7 @@ chains:
       - env: ETHSTATS_LOGIN
         value: ""
       - env: PROVIDER_URL
-        value: "{{ rocketpool_web3_url }}"
+        value: "{{ rocketpool_eth2_web3_http_url }}"
   eth2:
     client:
       selected: nimbus
