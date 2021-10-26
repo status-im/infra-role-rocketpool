@@ -1,26 +1,28 @@
 rocketpool:
-  storageAddress: 0xd8Cd47263414aFEca62d6e2a3917d6600abDceB3
-  oneInchOracleAddress: 0x4eDC966Df24264C9C817295a0753804EcC46Dd22
-  rplTokenAddress: 0xb4efd85c19999d84251304bda99e90b92300bd93
-  rplFaucetAddress: 0x95D6b8E2106E3B30a72fC87e2B56ce15E37853F9
+  storageAddress: {{ rocketpool_contracts[rocketpool_eth1_network].storage }}
+  oneInchOracleAddress: {{ rocketpool_contracts[rocketpool_eth1_network].one_inch }}
+  rplTokenAddress: {{ rocketpool_contracts[rocketpool_eth1_network].rpl_token }}
+  rplFaucetAddress: {{ rocketpool_contracts[rocketpool_eth1_network].rpl_faucet }}
 smartnode:
   projectName: rocketpool
-  graffitiVersion: v1.0.0-rc5
-  image: rocketpool/smartnode:v1.0.0-rc5
+  graffitiVersion: {{ rocketpool_version }}
+  image: rocketpool/smartnode:{{ rocketpool_version }}
   passwordPath: {{ rocketpool_password_file }}
   walletPath: {{ rocketpool_data_path }}/wallet
   validatorKeychainPath: {{ rocketpool_data_path }}/validators
-  validatorRestartCommand: "/opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh"
-  gasPrice: 0 # The desired gas price, in gwei, to use for transactions. Set it to 0 to use the network's average price.
-  rplClaimGasThreshold: 150 # Automatic RPL reward claims will wait until the network's average gas price, in gwei, is below this limit.
-                            # Set it to 0 to disable automatic claiming of RPL rewards entirely.
-  txWatchUrl: https://goerli.etherscan.io/tx
+  validatorRestartCommand: /opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh
+  # The desired gas price, in gwei, to use for transactions. Set it to 0 to use the network's average price.
+  gasPrice: 0
+  # Automatic RPL reward claims will wait until the network's average gas price, in gwei, is below this limit.
+  # Set it to 0 to disable automatic claiming of RPL rewards entirely.
+  rplClaimGasThreshold: 150
+  txWatchUrl: {{ rocketpool_tx_watch_urls[rocketpool_eth1_network] }}
 chains:
   eth1:
     provider: {{ rocketpool_eth2_web3_http_url }}
     wsProvider: {{ rocketpool_eth2_web3_ws_url }}
     mainnetProvider: {{ rocketpool_eth2_web3_http_url }}
-    chainID: 5 # Goerli
+    chainID: {{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}
     client:
       options:
       - id: geth
@@ -187,7 +189,7 @@ chains:
           blankText: the default of 9001
       - id: teku
         name: Teku
-        desc: "\tPegaSys Teku (formerly known as Artemis) is a Java-based\n 
+        desc: "\tPegaSys Teku (formerly known as Artemis) is a Java-based\n
           \t\tEthereum 2.0 client designed & built to meet institutional needs\n
           \t\tand security requirements. PegaSys is an arm of ConsenSys\n
           \t\tdedicated to building enterprise-ready clients and tools for\n

@@ -6,6 +6,14 @@ rocketpool_user: 'rocketpool'
 rocketpool_group: 'rocketpool'
 
 rocketpool_version: 'v1.0.0-rc7'
+rocketpool_eth1_network: 'goerli'
+rocketpool_eth1_network_ids:
+  mainnet: 1
+  goerli: 5
+
+rocketpool_tx_watch_urls:
+  mainnet: https://etherscan.io/tx
+  goerli: https://goerli.etherscan.io/tx
 
 rocketpool_graffiti: '' # Nimbus-compatible graffiti string
 rocketpool_data_path: '{{ rocketpool_service_path }}/data'
@@ -21,6 +29,15 @@ rocketpool_wallet_file: '{{ rocketpool_data_path }}/wallet'
 # Required for Eth1 sync
 #rocketpool_eth2_web3_http_url: ~
 #rocketpool_eth2_web3_ws_url: ~
+
+# Contract addresses
+# TODO add mainnet addresses
+rocketpool_contracts:
+  goerli:
+    storage:    '0xd8Cd47263414aFEca62d6e2a3917d6600abDceB3'
+    one_inch:   '0x4eDC966Df24264C9C817295a0753804EcC46Dd22'
+    rpl_token:  '0xb4efd85c19999d84251304bda99e90b92300bd93'
+    rpl_faucet: '0x95D6b8E2106E3B30a72fC87e2B56ce15E37853F9'
 
 rocketpool_eth2_network: 'prater'
 rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2'
