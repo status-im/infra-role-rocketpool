@@ -10,6 +10,8 @@ RestartSec=5
 ExecStart=/usr/local/bin/rocketpoold \
   --config {{ rocketpool_service_path }}/config.yml \
   --settings {{ rocketpool_service_path }}/settings.yml \
+  --metricsAddress {{ rocketpool_metrics_addr }} \
+  --metricsPort {{ rocketpool_metrics_port }} \
   node
 
 [Install]

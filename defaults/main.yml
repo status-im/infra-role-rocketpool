@@ -5,6 +5,9 @@ rocketpool_service_path: '/data/{{ rocketpool_service_name }}'
 rocketpool_user: 'rocketpool'
 rocketpool_group: 'rocketpool'
 
+rocketpool_metrics_addr: '0.0.0.0'
+rocketpool_metrics_port: 9102
+
 rocketpool_version: 'v1.0.0-rc7'
 rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
