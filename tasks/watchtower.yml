@@ -13,3 +13,16 @@
     name: '{{ rocketpool_watchtower_service_name }}.service'
     state: 'restarted'
     enabled: true
+
+- name: 'Create Consul service definition'
+  include_role: name=consul-service
+  vars:
+    consul_config_name: '{{ rocketpool_watchtower_service_name }}'
+    consul_services:
+      - id:   '{{ rocketpool_watchtower_service_name }}'
+        name: '{{ rocketpool_watchtower_service_name }}'
+        tags: ['rocketpool', 'staking', 'watchtower']
+        checks:
+          - name: '{{ rocketpool_watchtower_service_name }}-health'
+            type: 'script'
+            script: '/usr/bin/systemctl is-active {{ rocketpool_watchtower_service_name }}'

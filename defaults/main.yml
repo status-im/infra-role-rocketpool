@@ -13,8 +13,8 @@ rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
 rocketpool_tx_watch_urls:
-  mainnet: https://etherscan.io/tx
-  goerli: https://goerli.etherscan.io/tx
+  mainnet: 'https://etherscan.io/tx'
+  goerli:  'https://goerli.etherscan.io/tx'
 
 rocketpool_graffiti: '' # Nimbus-compatible graffiti string
 rocketpool_data_path: '{{ rocketpool_service_path }}/smart-node'
