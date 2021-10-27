@@ -1,7 +1,7 @@
 ---
 - name: Create systemd Unit file
   template:
-    src: 'rocketpool-node.service.j2'
+    src: 'rocketpool-smart-node.service.j2'
     dest: '/etc/systemd/system/{{ rocketpool_node_service_name }}.service'
     mode: 0644
 

@@ -44,4 +44,3 @@
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
     mode: 0755
-

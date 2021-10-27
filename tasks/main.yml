@@ -1,7 +1,7 @@
 ---
 - import_tasks: user.yml
-- import_tasks: eth2.yml
 - import_tasks: install.yml
 - import_tasks: config.yml
-- import_tasks: node.yml
+- import_tasks: eth2-node.yml
+- import_tasks: smart-node.yml
 - import_tasks: watchtower.yml

@@ -7,17 +7,15 @@ rocketpool_group: 'rocketpool'
 
 rocketpool_version: 'v1.0.0-rc7'
 rocketpool_eth1_network: 'goerli'
-rocketpool_eth1_network_ids:
-  mainnet: 1
-  goerli: 5
-
+rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
+rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
 rocketpool_tx_watch_urls:
   mainnet: https://etherscan.io/tx
   goerli: https://goerli.etherscan.io/tx
 
 rocketpool_graffiti: '' # Nimbus-compatible graffiti string
-rocketpool_data_path: '{{ rocketpool_service_path }}/data'
-rocketpool_node_service_name: '{{ rocketpool_service_name }}-node'
+rocketpool_data_path: '{{ rocketpool_service_path }}/smart-node'
+rocketpool_node_service_name: '{{ rocketpool_service_name }}-smart-node'
 rocketpool_watchtower_service_name: '{{ rocketpool_service_name }}-watchtower'
 
 # Generated randomly if not set
@@ -43,10 +41,13 @@ rocketpool_contracts:
     rpl_token:  'TODO'
     rpl_faucet: 'TODO'
 
-rocketpool_eth2_network: 'prater'
-rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2'
+# Nimbus Eth2 Beacon Node
+rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2-node'
+rocketpool_eth2_service_path: '{{ rocketpool_service_path }}/eth2-node'
 rocketpool_eth2_libp2p_port: 59001
 rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008
 rocketpool_eth2_rest_port: 55052
 rocketpool_eth2_rpc_port: 59190
+rocketpool_eth2_networks: { mainnet: 'mainnet', goerli: 'prater' }
+rocketpool_eth2_network: '{{ rocketpool_eth2_networks[rocketpool_eth1_network] }}'
