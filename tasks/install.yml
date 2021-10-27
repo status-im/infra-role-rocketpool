@@ -20,27 +20,12 @@
     group: '{{ rocketpool_group }}'
     mode: 0755
 
-- name: Create RocketPool wrapper script
-  template:
-    src: 'rocketpool-wrapper-script.j2'
-    dest: '/usr/local/bin/rocketpool'
-    owner: root
-    group: root
-    mode: 0755
-
-- name: Create RocketPool daemon binary symlink
+- name: Symlink RocketPool binaries
   file:
     state: link
-    src: '/opt/rocketpool/{{ rocketpool_version }}/bin/rocketpool-daemon-linux-amd64'
-    dest: '/usr/local/bin/rocketpoold'
-    owner: root
-    group: root
+    src: '/opt/rocketpool/{{ rocketpool_version }}/bin/{{ item.value }}'
+    dest: '/usr/local/bin/{{ item.key }}'
     mode: 0755
-
-- name: Create validator restart script
-  template:
-    src: 'validator-restart-command.j2'
-    dest: '/opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh'
-    owner: '{{ rocketpool_user }}'
-    group: '{{ rocketpool_group }}'
-    mode: 0755
+  with_dict:
+    rocketpool-daemon: 'rocketpool-daemon-linux-amd64'
+    rocketpool-cli:    'rocketpool-cli-linux-amd64'

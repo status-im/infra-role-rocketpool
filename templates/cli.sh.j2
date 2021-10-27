@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+exec /usr/local/bin/rocketpool-cli \
+    --config-path {{ rocketpool_service_path }} \
+    -d /usr/local/bin/rocketpool-daemon "$@"

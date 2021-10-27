@@ -7,7 +7,7 @@ Type=simple
 User={{ rocketpool_user }}
 Restart=always
 RestartSec=5
-ExecStart=/usr/local/bin/rocketpoold \
+ExecStart=/usr/local/bin/rocketpool-daemon \
   --config {{ rocketpool_service_path }}/config.yml \
   --settings {{ rocketpool_service_path }}/settings.yml \
   --metricsAddress {{ rocketpool_metrics_addr }} \

@@ -21,6 +21,15 @@
     - 'settings.yml'
     - 'config.yml'
 
+- name: Create wrapper scripts
+  template:
+    src: '{{ item }}.j2'
+    dest: '{{ rocketpool_service_path }}/{{ item }}'
+    mode: 0755
+  with_items:
+    - 'restart.sh'
+    - 'cli.sh'
+
 - name: Create RocketPool password file
   copy:
     dest: '{{ rocketpool_password_file }}'
