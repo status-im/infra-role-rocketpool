@@ -8,7 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.0.0-rc7'
+rocketpool_version: 'v1.0.0'
+rocketpool_daemon_sha256: 'a3fcfd8247ffae4ba2782608ea1b1b6c2acfdb023cdbae3598acbde668051b6e'
+rocketpool_cli_sha256: 'ec9bf9ab358c09a7a5c41c4e9b42cce45c60fa8d56dd1656749185bdd8f22e7c'
 rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
@@ -39,10 +41,10 @@ rocketpool_contracts:
     rpl_token:  '0xb4efd85c19999d84251304bda99e90b92300bd93'
     rpl_faucet: '0x95D6b8E2106E3B30a72fC87e2B56ce15E37853F9'
   mainnet: 
-    storage:    'TODO'
-    one_inch:   'TODO'
-    rpl_token:  'TODO'
-    rpl_faucet: 'TODO'
+    storage:    '0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46'
+    one_inch:   '0x07D91f5fb9Bf7798734C3f606dB065549F6893bb'
+    rpl_token:  '0xb4efd85c19999d84251304bda99e90b92300bd93'
+    rpl_faucet: 'NOT_APPLICABLE'
 
 # Nimbus Eth2 Beacon Node
 rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2-node'
