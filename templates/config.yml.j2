@@ -10,7 +10,7 @@ smartnode:
   passwordPath: {{ rocketpool_password_file }}
   walletPath: {{ rocketpool_data_path }}/wallet
   validatorKeychainPath: {{ rocketpool_data_path }}/validators
-  validatorRestartCommand: /opt/rocketpool/{{ rocketpool_version }}/bin/validator-restart-command.sh
+  validatorRestartCommand: {{ rocketpool_eth2_service_path }}/restart.sh
   # The desired gas price, in gwei, to use for transactions. Set it to 0 to use the network's average price.
   gasPrice: 0
   # Automatic RPL reward claims will wait until the network's average gas price, in gwei, is below this limit.

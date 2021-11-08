@@ -30,6 +30,12 @@
     - 'restart.sh'
     - 'cli.sh'
 
+- name: Create Eth2 node restart script
+  template:
+    src: 'eth2-restart.sh.j2'
+    dest: '{{ rocketpool_eth2_service_path }}/restart.sh'
+    mode: 0755
+
 - name: Create RocketPool password file
   copy:
     dest: '{{ rocketpool_password_file }}'
