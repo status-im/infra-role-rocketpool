@@ -3,11 +3,12 @@
 # validator and secrets folders we have to do it ourselves here.
 - name: Creating directories
   file:
-    path: '{{ item.path }}'
-    mode: '{{ item.mode }}'
+    path:  '{{ item.path }}'
+    mode:  '{{ item.mode }}'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
-    state: directory
+    state: 'directory'
+    mode:  0755
   with_items:
     - { path: '{{ rocketpool_data_path }}/validators',                   mode: '0770' }
     - { path: '{{ rocketpool_data_path }}/validators/nimbus',            mode: '0770' }
@@ -30,9 +31,10 @@
     beacon_node_rpc_port:       '{{ rocketpool_eth2_rpc_port }}'
     beacon_node_validators_dir: '{{ rocketpool_data_path }}/validators/nimbus/validators'
     beacon_node_secrets_dir:    '{{ rocketpool_data_path }}/validators/nimbus/secrets'
-    beacon_node_repo_branch: 'stable'
+    beacon_node_suggested_fee_recipient: '{{ rocketpool_eth2_fee_recipient | mandatory }}'
+    beacon_node_repo_branch:    '{{ rocketpool_eth2_repo_branch }}'
     beacon_node_build_frequency: '*-*-* 20:00:00'
     beacon_node_dist_validators_enabled: false
     beacon_node_web3_urls:
-      - '{{ rocketpool_eth2_web3_http_url }}'
-      - '{{ rocketpool_eth2_web3_ws_url }}'
+      - '{{ rocketpool_eth1_web3_rpc_url }}'
+      - '{{ rocketpool_eth1_web3_ws_url }}'

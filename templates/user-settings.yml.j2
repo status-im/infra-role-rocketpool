@@ -1,0 +1,144 @@
+# WARNING: File initally generated with `rocketpool-cli service config`.
+# See the `tasks/config.yml` for commented call that was used.
+besu:
+  additionalFlags: ""
+  containerTag: hyperledger/besu:22.7.0-RC3-openjdk-latest
+  jvmHeapSize: "0"
+  maxBackLayers: "512"
+  maxPeers: "25"
+bitflyNodeMetrics:
+  bitflyEndpoint: https://beaconcha.in/api/v1/client/metrics
+  bitflyMachineName: Smartnode
+  bitflySecret: ""
+consensusCommon:
+  apiPort: "{{ rocketpool_eth2_rest_port }}"
+  checkpointSyncUrl: ""
+  doppelgangerDetection: "true"
+  graffiti: "{{ rocketpool_graffiti }}"
+  openApiPort: "false"
+  p2pPort: "{{ rocketpool_eth2_libp2p_port }}"
+executionCommon:
+  enginePort: "8551"
+  ethstatsLabel: ""
+  ethstatsLogin: ""
+  httpPort: "8545"
+  openRpcPorts: "false"
+  p2pPort: "30303"
+  wsPort: "8546"
+exporter:
+  additionalFlags: ""
+  containerTag: prom/node-exporter:v1.3.1
+  enableRootFs: "false"
+externalExecution:
+  httpUrl: "{{ rocketpool_eth1_web3_rpc_url | mandatory }}"
+  wsUrl: "{{ rocketpool_eth1_web3_ws_url | mandatory }}"
+externalLighthouse:
+  additionalVcFlags: ""
+  containerTag: sigp/lighthouse:v2.4.0
+  doppelgangerDetection: "true"
+  graffiti: ""
+  httpUrl: ""
+externalPrysm:
+  additionalVcFlags: ""
+  containerTag: prysmaticlabs/prysm-validator:HEAD-4de92b-debug
+  doppelgangerDetection: "true"
+  graffiti: ""
+  httpUrl: ""
+  jsonRpcUrl: ""
+externalTeku:
+  additionalVcFlags: ""
+  containerTag: consensys/teku:22.7.0
+  graffiti: ""
+  httpUrl: ""
+fallbackNormal:
+  ccHttpUrl: ""
+  ecHttpUrl: ""
+fallbackPrysm:
+  ccHttpUrl: ""
+  ecHttpUrl: ""
+  jsonRpcUrl: ""
+geth:
+  additionalFlags: ""
+  cache: "256"
+  containerTag: ethereum/client-go:v1.10.21
+  maxPeers: "50"
+grafana:
+  containerTag: grafana/grafana:8.5.9
+  port: "3100"
+lighthouse:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  containerTag: sigp/lighthouse:v2.4.0
+  maxPeers: "80"
+mevBoost:
+  additionalFlags: ""
+  containerTag: flashbots/mev-boost:v0.7.7
+  externalUrl: ""
+  mode: local
+  port: "18550"
+  relays: ""
+native:
+  ccHttpUrl: "http://localhost:{{ rocketpool_eth2_rest_port }}"
+  consensusClient: nimbus
+  ecHttpUrl: "{{ rocketpool_eth1_web3_rpc_url | mandatory }}"
+  validatorRestartCommand: "{{ rocketpool_eth2_service_path }}/eth2-restart.sh"
+  validatorStopCommand: "{{ rocketpool_eth2_service_path }}/eth2-stop.sh"
+nethermind:
+  additionalFlags: ""
+  cache: "512"
+  containerTag: nethermind/nethermind:1.13.5
+  maxPeers: "50"
+  pruneMemSize: "512"
+nimbus:
+  additionalFlags: ""
+  containerTag: statusim/nimbus-eth2:multiarch-v22.7.0
+  maxPeers: "160"
+prometheus:
+  additionalFlags: ""
+  containerTag: prom/prometheus:v2.37.0
+  openPort: "false"
+  port: "9091"
+prysm:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  bnContainerTag: prysmaticlabs/prysm-beacon-chain:HEAD-4de92b-debug
+  maxPeers: "45"
+  openRpcPort: "false"
+  rpcPort: "5053"
+  vcContainerTag: prysmaticlabs/prysm-validator:HEAD-4de92b-debug
+root:
+  bnMetricsPort: "{{ rocketpool_eth2_metrics_port }}"
+  consensusClient: nimbus
+  consensusClientMode: external
+  ecMetricsPort: "9105"
+  enableBitflyNodeMetrics: "false"
+  enableMetrics: "true"
+  executionClient: geth
+  executionClientMode: external
+  exporterMetricsPort: "9103"
+  externalConsensusClient: lighthouse
+  isNative: "true"
+  nodeMetricsPort: "{{ rocketpool_metrics_port }}"
+  reconnectDelay: 60s
+  rpDir: "{{ rocketpool_service_path }}"
+  useFallbackClients: "false"
+  vcMetricsPort: "9101"
+  version: v1.5.0
+  watchtowerMetricsPort: "{{ rocketpool_watchtower_metrics_port }}"
+smartnode:
+  archiveECUrl: ""
+  dataPath: "{{ rocketpool_data_path }}"
+  manualMaxFee: "0"
+  minipoolStakeGasThreshold: "150"
+  network: mainnet
+  priorityFee: "2"
+  projectName: rocketpool
+  rewardsTreeMode: download
+  rplClaimGasThreshold: "150"
+  web3StorageApiToken: ""
+teku:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  containerTag: consensys/teku:22.7.0
+  jvmHeapSize: "2048"
+  maxPeers: "100"

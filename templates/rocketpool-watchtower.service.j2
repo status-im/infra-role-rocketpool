@@ -8,10 +8,9 @@ User={{ rocketpool_user }}
 Restart=always
 RestartSec=5
 ExecStart=/usr/local/bin/rocketpool-daemon \
-  --config {{ rocketpool_service_path }}/config.yml \
-  --settings {{ rocketpool_service_path }}/settings.yml \
-  --metricsAddress {{ rocketpool_metrics_addr }} \
-  --metricsPort {{ rocketpool_metrics_port }} \
+  --settings={{ rocketpool_service_path }}/user-settings.yml \
+  --password={{ rocketpool_password_file | mandatory }} \
+  --wallet={{ rocketpool_wallet_file | mandatory }} \
   watchtower
 
 [Install]
