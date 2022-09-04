@@ -8,9 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.6.1'
-rocketpool_daemon_sha256: '380396d09ca4f27f34c194dd73c0dd69fd725c4eb6728e6da37bd90749c7771c'
-rocketpool_cli_sha256: '84097cdb76738c8e33fa37e9babc0abb64bda1775c269c74c226aa37555d9b53'
+rocketpool_version: 'v1.6.2'
+rocketpool_daemon_sha256: 'ae05f93826b9f9952ebe07104e7d53e7ea3fea00349d6ecab471c069d3cf777f'
+rocketpool_cli_sha256: 'a6e08726f0feaa143705b0f6bfa880d7e33dac44128cb787761322181406ae62'
 rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
@@ -34,7 +34,7 @@ rocketpool_wallet_file: '{{ rocketpool_data_path }}/wallet'
 # Nimbus Eth2 Beacon Node
 rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2-node'
 rocketpool_eth2_service_path: '{{ rocketpool_service_path }}/eth2-node'
-rocketpool_eth2_repo_branch: 'v22.8.1'
+rocketpool_eth2_repo_branch: 'v22.8.2'
 rocketpool_eth2_libp2p_port: 59001
 rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008
