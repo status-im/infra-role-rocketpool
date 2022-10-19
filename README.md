@@ -22,10 +22,12 @@ Add to your `requirements.yml` file:
 
 A basic configuration would look like:
 ```yaml
-rocketpool_version: '1.0.0'
 rocketpool_graffiti: 'my-rocketpool-node'
 rocketpool_eth1_network: 'goerli'
 # Mandatory
+rocketpool_eth2_fee_recipient: '0x1111111111111111111111111111111111111111'
+rocketpool_eth1_web3_jwtsecret: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+rocketpool_eth1_web3_authrpc_url: 'http://1.2.3.4:8551/'
 rocketpool_eth2_web3_rpc_url: 'http://1.2.3.4:8545/'
 rocketpool_eth2_web3_ws_url: 'ws://1.2.3.4:8546/'
 ```

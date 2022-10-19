@@ -1,5 +1,13 @@
 # WARNING: File initally generated with `rocketpool-cli service config`.
 # See the `tasks/config.yml` for commented call that was used.
+addons-gww:
+  additionalFlags: ""
+  containerTag: rocketpool/graffiti-wall-addon:v1.0.1
+  enabled: "false"
+  inputUrl: https://cdn-rocketpool.s3.us-west-2.amazonaws.com/graffiti.json
+  updateInputTime: "600"
+  updatePixelTime: "60"
+  updateWallTime: "600"
 besu:
   additionalFlags: ""
   containerTag: hyperledger/besu:22.7.0-RC3-openjdk-latest
@@ -72,11 +80,17 @@ lighthouse:
   maxPeers: "80"
 mevBoost:
   additionalFlags: ""
+  blocknativeEnabled: "false"
+  bloxRouteEthicalEnabled: "false"
+  bloxRouteMaxProfitEnabled: "false"
+  bloxRouteRegulatedEnabled: "false"
   containerTag: flashbots/mev-boost:v0.7.7
+  edenEnabled: "false"
   externalUrl: ""
+  flashbotsEnabled: "false"
   mode: local
+  openRpcPort: "false"
   port: "18550"
-  relays: ""
 native:
   ccHttpUrl: "http://localhost:{{ rocketpool_eth2_rest_port }}"
   consensusClient: nimbus
@@ -113,6 +127,8 @@ root:
   ecMetricsPort: "9105"
   enableBitflyNodeMetrics: "false"
   enableMetrics: "true"
+  enableMevBoost: "false"
+  enableODaoMetrics: "false"
   executionClient: geth
   executionClientMode: external
   exporterMetricsPort: "9103"
@@ -123,7 +139,7 @@ root:
   rpDir: "{{ rocketpool_service_path }}"
   useFallbackClients: "false"
   vcMetricsPort: "9101"
-  version: v1.5.0
+  version: "{{ rocketpool_version }}"
   watchtowerMetricsPort: "{{ rocketpool_watchtower_metrics_port }}"
 smartnode:
   archiveECUrl: ""
@@ -134,11 +150,11 @@ smartnode:
   priorityFee: "2"
   projectName: rocketpool
   rewardsTreeMode: download
-  rplClaimGasThreshold: "150"
   web3StorageApiToken: ""
 teku:
   additionalBnFlags: ""
   additionalVcFlags: ""
+  archiveMode: "true"
   containerTag: consensys/teku:22.7.0
   jvmHeapSize: "2048"
   maxPeers: "100"

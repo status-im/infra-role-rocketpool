@@ -31,10 +31,9 @@
     beacon_node_rpc_port:       '{{ rocketpool_eth2_rpc_port }}'
     beacon_node_validators_dir: '{{ rocketpool_data_path }}/validators/nimbus/validators'
     beacon_node_secrets_dir:    '{{ rocketpool_data_path }}/validators/nimbus/secrets'
-    beacon_node_suggested_fee_recipient: '{{ rocketpool_eth2_fee_recipient | mandatory }}'
     beacon_node_repo_branch:    '{{ rocketpool_eth2_repo_branch }}'
     beacon_node_build_frequency: '*-*-* 20:00:00'
     beacon_node_dist_validators_enabled: false
-    beacon_node_web3_urls:
-      - '{{ rocketpool_eth1_web3_rpc_url }}'
-      - '{{ rocketpool_eth1_web3_ws_url }}'
+    beacon_node_suggested_fee_recipient: '{{ rocketpool_eth2_fee_recipient | mandatory }}'
+    beacon_node_web3_jwt_secret: '{{ rocketpool_eth1_web3_jwtsecret | mandatory }}'
+    beacon_node_web3_urls:      ['{{ rocketpool_eth1_web3_authrpc_url }}']
