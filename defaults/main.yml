@@ -19,6 +19,7 @@ rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_netw
 #rocketpool_eth1_web3_authrpc_url: ~
 #rocketpool_eth1_web3_rpc_url: ~
 #rocketpool_eth1_web3_ws_url: ~
+#rocketpool_eth1_archive_url: ~
 
 rocketpool_graffiti: 'NimbusTeam' # Nimbus-compatible graffiti string
 rocketpool_data_path: '{{ rocketpool_service_path }}/smart-node'

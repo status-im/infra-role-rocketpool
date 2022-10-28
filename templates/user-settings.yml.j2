@@ -142,7 +142,7 @@ root:
   version: "{{ rocketpool_version }}"
   watchtowerMetricsPort: "{{ rocketpool_watchtower_metrics_port }}"
 smartnode:
-  archiveECUrl: ""
+  archiveECUrl: "{{ rocketpool_eth1_archive_url | mandatory }}"
   dataPath: "{{ rocketpool_data_path }}"
   manualMaxFee: "0"
   minipoolStakeGasThreshold: "150"
