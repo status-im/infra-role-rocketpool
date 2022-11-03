@@ -86,11 +86,16 @@ mevBoost:
   bloxRouteRegulatedEnabled: "false"
   containerTag: flashbots/mev-boost:v0.7.7
   edenEnabled: "false"
+  enableRegulatedAllMev: "false"
+  enableRegulatedNoSandwich: "false"
+  enableUnregulatedAllMev: "false"
+  enableUnregulatedNoSandwich: "false"
   externalUrl: ""
   flashbotsEnabled: "false"
   mode: local
   openRpcPort: "false"
   port: "18550"
+  selectionMode: profile
 native:
   ccHttpUrl: "http://localhost:{{ rocketpool_eth2_rest_port }}"
   consensusClient: nimbus
