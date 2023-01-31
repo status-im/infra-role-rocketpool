@@ -22,11 +22,11 @@ consensusCommon:
   apiPort: "{{ rocketpool_eth2_rest_port }}"
   checkpointSyncUrl: ""
   doppelgangerDetection: "true"
-  graffiti: "{{ rocketpool_graffiti }}"
+  graffiti: {{ rocketpool_graffiti }}
   openApiPort: "false"
   p2pPort: "{{ rocketpool_eth2_libp2p_port }}"
 executionCommon:
-  enginePort: "8551"
+  enginePort: "58551"
   ethstatsLabel: ""
   ethstatsLogin: ""
   httpPort: "8545"
@@ -38,8 +38,8 @@ exporter:
   containerTag: prom/node-exporter:v1.3.1
   enableRootFs: "false"
 externalExecution:
-  httpUrl: "{{ rocketpool_eth1_web3_rpc_url | mandatory }}"
-  wsUrl: "{{ rocketpool_eth1_web3_ws_url | mandatory }}"
+  httpUrl: {{ rocketpool_eth1_web3_rpc_url | mandatory }}
+  wsUrl: {{ rocketpool_eth1_web3_ws_url | mandatory }}
 externalLighthouse:
   additionalVcFlags: ""
   containerTag: sigp/lighthouse:v2.4.0
@@ -98,9 +98,9 @@ mevBoost:
   selectionMode: profile
   ultrasoundEnabled: "false"
 native:
-  ccHttpUrl: "http://localhost:{{ rocketpool_eth2_rest_port }}"
+  ccHttpUrl: http://localhost:{{ rocketpool_eth2_rest_port }}
   consensusClient: nimbus
-  ecHttpUrl: "{{ rocketpool_eth1_web3_rpc_url | mandatory }}"
+  ecHttpUrl: {{ rocketpool_eth1_web3_rpc_url | mandatory }}
   validatorRestartCommand: {{ rocketpool_service_path }}/eth2-restart.sh
   validatorStopCommand: {{ rocketpool_service_path }}/eth2-stop.sh
 nethermind:
@@ -115,6 +115,7 @@ nimbus:
   additionalFlags: ""
   containerTag: statusim/nimbus-eth2:multiarch-v22.7.0
   maxPeers: "160"
+  pruningMode: archive
 prometheus:
   additionalFlags: ""
   containerTag: prom/prometheus:v2.37.0
@@ -144,14 +145,14 @@ root:
   isNative: "true"
   nodeMetricsPort: "{{ rocketpool_metrics_port }}"
   reconnectDelay: 60s
-  rpDir: "{{ rocketpool_service_path }}"
+  rpDir: {{ rocketpool_service_path }}
   useFallbackClients: "false"
   vcMetricsPort: "9101"
-  version: "{{ rocketpool_version }}"
+  version: {{ rocketpool_version }}
   watchtowerMetricsPort: "{{ rocketpool_watchtower_metrics_port }}"
 smartnode:
-  archiveECUrl: "{{ rocketpool_eth1_archive_url | mandatory }}"
-  dataPath: "{{ rocketpool_data_path }}"
+  archiveECUrl: {{ rocketpool_eth1_archive_url | mandatory }}
+  dataPath: {{ rocketpool_data_path }}
   manualMaxFee: "0"
   minipoolStakeGasThreshold: "150"
   network: mainnet
