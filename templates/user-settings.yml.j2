@@ -101,8 +101,8 @@ native:
   ccHttpUrl: "http://localhost:{{ rocketpool_eth2_rest_port }}"
   consensusClient: nimbus
   ecHttpUrl: "{{ rocketpool_eth1_web3_rpc_url | mandatory }}"
-  validatorRestartCommand: "{{ rocketpool_eth2_service_path }}/eth2-restart.sh"
-  validatorStopCommand: "{{ rocketpool_eth2_service_path }}/eth2-stop.sh"
+  validatorRestartCommand: {{ rocketpool_service_path }}/eth2-restart.sh
+  validatorStopCommand: {{ rocketpool_service_path }}/eth2-stop.sh
 nethermind:
   additionalFlags: ""
   additionalModules: ""
