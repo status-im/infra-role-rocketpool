@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-exec /usr/local/bin/rocketpool-cli \
-    --config-path {{ rocketpool_service_path }} \
-    -d /usr/local/bin/rocketpool-daemon "$@"
+exec sudo -u {{ rocketpool_user }} \
+    /usr/local/bin/rocketpool-cli \
+        --config-path={{ rocketpool_service_path }} \
+        --daemon-path=/usr/local/bin/rocketpool-daemon \
+        "$@"
