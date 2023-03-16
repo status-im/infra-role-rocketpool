@@ -37,7 +37,7 @@ rocketpool_wallet_file: '{{ rocketpool_data_path }}/wallet'
 # Nimbus Eth2 Beacon Node
 rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2-node'
 rocketpool_eth2_service_path: '{{ rocketpool_service_path }}/eth2-node'
-rocketpool_eth2_repo_branch: 'v23.1.1'
+rocketpool_eth2_repo_branch: 'v23.3.1'
 rocketpool_eth2_libp2p_port: 59001
 rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008
