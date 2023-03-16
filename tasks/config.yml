@@ -23,6 +23,7 @@
 #      --watchtowerMetricsPort={{ rocketpool_watchtower_metrics_port }} \
 #      --smartnode-network=mainnet \
 #      --smartnode-archiveECUrl={{ rocketpool_eth1_archive_url | mandatory }} \
+#      --smartnode-web3StorageApiToken={{ rocketpool_web3_storage_token | mandatory }}
 #      --bnMetricsPort={{ rocketpool_eth2_metrics_port }} \
 #      --smartnode-dataPath={{ rocketpool_data_path }} \
 #      --executionClientMode=external \

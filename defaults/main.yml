@@ -46,3 +46,6 @@ rocketpool_eth2_rpc_port: 59190
 rocketpool_eth2_networks: { mainnet: 'mainnet', goerli: 'prater' }
 rocketpool_eth2_network: '{{ rocketpool_eth2_networks[rocketpool_eth1_network] }}'
 #rocketpool_eth2_fee_recipient: ~
+
+# Web3.Storage
+rocketpool_web3_storage_token: ''

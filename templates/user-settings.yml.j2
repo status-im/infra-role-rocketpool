@@ -159,7 +159,7 @@ smartnode:
   priorityFee: "2"
   projectName: rocketpool
   rewardsTreeMode: download
-  web3StorageApiToken: ""
+  web3StorageApiToken: {{ rocketpool_web3_storage_token | mandatory }}
 teku:
   additionalBnFlags: ""
   additionalVcFlags: ""
