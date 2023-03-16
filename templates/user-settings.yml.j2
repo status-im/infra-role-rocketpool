@@ -38,8 +38,8 @@ exporter:
   containerTag: prom/node-exporter:v1.3.1
   enableRootFs: "false"
 externalExecution:
-  httpUrl: {{ rocketpool_eth1_web3_rpc_url | mandatory }}
-  wsUrl: {{ rocketpool_eth1_web3_ws_url | mandatory }}
+  httpUrl: {{ rocketpool_eth1_exec_layer_rpc_url | mandatory }}
+  wsUrl: {{ rocketpool_eth1_exec_layer_ws_url | mandatory }}
 externalLighthouse:
   additionalVcFlags: ""
   containerTag: sigp/lighthouse:v2.4.0
@@ -100,7 +100,7 @@ mevBoost:
 native:
   ccHttpUrl: http://localhost:{{ rocketpool_eth2_rest_port }}
   consensusClient: nimbus
-  ecHttpUrl: {{ rocketpool_eth1_web3_rpc_url | mandatory }}
+  ecHttpUrl: {{ rocketpool_eth1_exec_layer_rpc_url | mandatory }}
   validatorRestartCommand: {{ rocketpool_service_path }}/eth2-restart.sh
   validatorStopCommand: {{ rocketpool_service_path }}/eth2-stop.sh
 nethermind:

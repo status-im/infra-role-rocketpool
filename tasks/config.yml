@@ -27,9 +27,9 @@
 #      --smartnode-dataPath={{ rocketpool_data_path }} \
 #      --executionClientMode=external \
 #      --executionClient=geth \
-#      --native-ecHttpUrl={{ rocketpool_eth1_web3_rpc_url | mandatory }} \
-#      --externalExecution-httpUrl={{ rocketpool_eth1_web3_rpc_url | mandatory }} \
-#      --externalExecution-wsUrl={{ rocketpool_eth1_web3_ws_url | mandatory }} \
+#      --native-ecHttpUrl={{ rocketpool_eth1_exec_layer_rpc_url | mandatory }} \
+#      --externalExecution-httpUrl={{ rocketpool_eth1_exec_layer_rpc_url | mandatory }} \
+#      --externalExecution-wsUrl={{ rocketpool_eth1_exec_layer_ws_url | mandatory }} \
 #      --consensusClientMode=external \
 #      --consensusClient=nimbus \
 #      --native-consensusClient=nimbus \

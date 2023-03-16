@@ -15,10 +15,10 @@ rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
 # Required for Eth1 sync
-#rocketpool_eth1_web3_jwtsecret: ~
-#rocketpool_eth1_web3_authrpc_url: ~
-#rocketpool_eth1_web3_rpc_url: ~
-#rocketpool_eth1_web3_ws_url: ~
+#rocketpool_eth1_exec_layer_jwtsecret: ~
+#rocketpool_eth1_exec_layer_authrpc_url: ~
+#rocketpool_eth1_exec_layer_rpc_url: ~
+#rocketpool_eth1_exec_layer_ws_url: ~
 #rocketpool_eth1_archive_url: ~
 
 rocketpool_graffiti: 'NimbusTeam' # Nimbus-compatible graffiti string
