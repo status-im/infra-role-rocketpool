@@ -46,6 +46,18 @@ externalLighthouse:
   doppelgangerDetection: "true"
   graffiti: ""
   httpUrl: ""
+externalLodestar:
+  additionalVcFlags: ""
+  containerTag: chainsafe/lodestar:v1.7.2
+  doppelgangerDetection: "true"
+  graffiti: ""
+  httpUrl: ""
+externalNimbus:
+  additionalVcFlags: ""
+  containerTag: statusim/nimbus-validator-client:multiarch-v23.3.2
+  doppelgangerDetection: "true"
+  graffiti: ""
+  httpUrl: ""
 externalPrysm:
   additionalVcFlags: ""
   containerTag: prysmaticlabs/prysm-validator:HEAD-4de92b-debug
@@ -70,6 +82,7 @@ geth:
   cache: "256"
   containerTag: ethereum/client-go:v1.10.21
   maxPeers: "50"
+  usePebble: "false"
 grafana:
   containerTag: grafana/grafana:8.5.9
   port: "3100"
@@ -78,8 +91,14 @@ lighthouse:
   additionalVcFlags: ""
   containerTag: sigp/lighthouse:v2.4.0
   maxPeers: "80"
+lodestar:
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  containerTag: chainsafe/lodestar:v1.7.2
+  maxPeers: "50"
 mevBoost:
   additionalFlags: ""
+  aestusEnabled: "false"
   blocknativeEnabled: "false"
   bloxRouteEthicalEnabled: "false"
   bloxRouteMaxProfitEnabled: "false"
@@ -112,7 +131,9 @@ nethermind:
   maxPeers: "50"
   pruneMemSize: "512"
 nimbus:
-  additionalFlags: ""
+  additionalBnFlags: ""
+  additionalVcFlags: ""
+  bnContainerTag: statusim/nimbus-eth2:multiarch-v23.3.2
   containerTag: statusim/nimbus-eth2:multiarch-v22.7.0
   maxPeers: "160"
   pruningMode: archive
@@ -152,13 +173,18 @@ root:
   watchtowerMetricsPort: "{{ rocketpool_watchtower_metrics_port }}"
 smartnode:
   archiveECUrl: {{ rocketpool_eth1_archive_url | mandatory }}
+  balancesModernizationEpoch: "194089"
   dataPath: {{ rocketpool_data_path }}
+  distributeThreshold: "1"
   manualMaxFee: "0"
   minipoolStakeGasThreshold: "150"
   network: mainnet
   priorityFee: "2"
   projectName: rocketpool
   rewardsTreeMode: download
+  rplTwapEpoch: "193414"
+  watchtowerMaxFeeOverride: "200"
+  watchtowerPrioFeeOverride: "3"
   web3StorageApiToken: {{ rocketpool_web3_storage_token | mandatory }}
 teku:
   additionalBnFlags: ""
