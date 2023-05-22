@@ -36,4 +36,6 @@
     beacon_node_dist_validators_enabled: false
     beacon_node_suggested_fee_recipient: '{{ rocketpool_eth2_fee_recipient | mandatory }}'
     beacon_node_exec_layer_jwt_secret:   '{{ rocketpool_eth1_exec_layer_jwtsecret | mandatory }}'
-    beacon_node_exec_layer_urls:        ['{{ rocketpool_eth1_exec_layer_authrpc_url }}']
+    beacon_node_exec_layer_urls:
+      - '{{ rocketpool_eth1_exec_layer_authrpc_url }}'
+      - '{{ rocketpool_eth1_archive_url }}'
