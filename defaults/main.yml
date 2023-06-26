@@ -8,9 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.9.5'
-rocketpool_cli_sha256: '7da7e59d1d21701041642b78a7ac83c36f468b31a77e4e119d721cec57387c4c'
-rocketpool_daemon_sha256: '67e4d58514f4335458ed3df5c1820c250c84c1b896ed548a1506f514ffb9aba5'
+rocketpool_version: 'v1.9.7'
+rocketpool_cli_sha256: '08d911adcbf9e9eb50f953b153693e215a241fbdc89287fc93f093ef7002d7da'
+rocketpool_daemon_sha256: 'b47ba910af0bba04407a68beea0f0557e48a7d1d5692250c5ad351c2e1a2a6f0'
 rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
