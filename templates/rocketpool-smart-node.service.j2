@@ -8,10 +8,7 @@ User={{ rocketpool_user }}
 Restart=always
 RestartSec=5
 ExecStart=/usr/local/bin/rocketpool-daemon \
-  --validatorKeychain={{ rocketpool_data_path }}/validators \
   --settings={{ rocketpool_service_path }}/user-settings.yml \
-  --password={{ rocketpool_password_file | mandatory }} \
-  --wallet={{ rocketpool_wallet_file | mandatory }} \
   node
 
 [Install]

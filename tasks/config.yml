@@ -10,6 +10,8 @@
     - '{{ rocketpool_service_path }}'
     - '{{ rocketpool_data_path }}'
     - '{{ rocketpool_records_path }}'
+    - '{{ rocketpool_validators_path }}'
+
 # The user-settings.yml.j2 template was created based on the config created
 # by running this command during initial setup. Unnecessary unless upgrading.
 #- name: Generate Rocketpool node config

@@ -8,9 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.10.0'
-rocketpool_cli_sha256: '213b6c8a21b2e502adf58ebefb93b3bb6ea5c909a1f1a5c62d96a8d9512793ef'
-rocketpool_daemon_sha256: '95f6a3a145c79f7a8ac760cf6b0fe27c2de8cc97f91731d07d8f7ea562646950'
+rocketpool_version: 'v1.10.1'
+rocketpool_cli_sha256:    '4e0d17c2a955589bc73015f093c9ac4998d4c8ec3adfa784e739546a059343dc'
+rocketpool_daemon_sha256: '2fea4ee0408743d9715bc2c4b8fc0f9de4a954ac422d56e7ccc572abeb0ae7a2'
 rocketpool_eth1_network: 'goerli'
 rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
@@ -22,7 +22,9 @@ rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_netw
 #rocketpool_eth1_archive_url: ~
 
 rocketpool_graffiti: 'NimbusTeam' # Nimbus-compatible graffiti string
-rocketpool_data_path: '{{ rocketpool_service_path }}/smart-node'
+rocketpool_data_path:         '{{ rocketpool_service_path }}/smart-node'
+rocketpool_records_path:      '{{ rocketpool_data_path}}/records'
+rocketpool_validators_path:   '{{ rocketpool_data_path }}/validators'
 rocketpool_node_service_name: '{{ rocketpool_service_name }}-smart-node'
 
 rocketpool_watchtower_service_name: '{{ rocketpool_service_name }}-watchtower'
@@ -46,7 +48,6 @@ rocketpool_eth2_rpc_port: 59190
 rocketpool_eth2_networks: { mainnet: 'mainnet', goerli: 'prater' }
 rocketpool_eth2_network: '{{ rocketpool_eth2_networks[rocketpool_eth1_network] }}'
 #rocketpool_eth2_fee_recipient: ~
-rocketpool_records_path: '{{ rocketpool_data_path}}/records'
 # Web3.Storage
 rocketpool_web3_storage_token: ''
 rocketpool_is_native: true
