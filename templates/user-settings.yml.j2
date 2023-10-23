@@ -79,8 +79,8 @@ fallbackPrysm:
   jsonRpcUrl: ""
 geth:
   additionalFlags: ""
-  cache: "256"
   containerTag: ethereum/client-go:v1.12.0
+  enablePbss: "false"
   maxPeers: "50"
 grafana:
   containerTag: grafana/grafana:9.4.13
@@ -98,7 +98,6 @@ lodestar:
 mevBoost:
   additionalFlags: ""
   aestusEnabled: "false"
-  blocknativeEnabled: "false"
   bloxRouteMaxProfitEnabled: "false"
   bloxRouteRegulatedEnabled: "false"
   containerTag: flashbots/mev-boost:1.6
