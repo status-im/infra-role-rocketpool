@@ -8,6 +8,10 @@ addons-gww:
   updateInputTime: "600"
   updatePixelTime: "60"
   updateWallTime: "600"
+addons-rescue-node:
+  enabled: "false"
+  password: ""
+  username: ""
 besu:
   additionalFlags: ""
   containerTag: hyperledger/besu:23.4.4
@@ -90,6 +94,7 @@ lighthouse:
   additionalVcFlags: ""
   containerTag: sigp/lighthouse:v2.4.0-modern
   maxPeers: "80"
+  p2pQuicPort: "8001"
 lodestar:
   additionalBnFlags: ""
   additionalVcFlags: ""
@@ -123,7 +128,7 @@ nethermind:
   additionalUrls: ""
   cache: "1024"
   containerTag: nethermind/nethermind:1.20.1
-  downloadCompleteHistory: "false"
+  fullPruneMemoryBudget: "1024"
   maxPeers: "50"
   pruneMemSize: "1024"
 nimbus:
@@ -179,6 +184,7 @@ smartnode:
   projectName: rocketpool
   recordCheckpointInterval: "45"
   recordsPath: {{ rocketpool_records_path }}
+  rewardsTreeCustomUrl: ""
   rewardsTreeMode: download
   useRollingRecords: "false"
   watchtowerMaxFeeOverride: "200"
