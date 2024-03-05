@@ -14,6 +14,7 @@ addons-rescue-node:
   username: ""
 besu:
   additionalFlags: ""
+  archiveMode: "false"
   containerTag: hyperledger/besu:23.4.4
   jvmHeapSize: "0"
   maxBackLayers: "512"
@@ -72,6 +73,7 @@ externalPrysm:
 externalTeku:
   additionalVcFlags: ""
   containerTag: consensys/teku:23.6.2
+  doppelgangerDetection: "true"
   graffiti: ""
   httpUrl: ""
 fallbackNormal:
@@ -129,6 +131,7 @@ nethermind:
   cache: "1024"
   containerTag: nethermind/nethermind:1.20.1
   fullPruneMemoryBudget: "1024"
+  fullPruningThresholdMb: "307200"
   maxPeers: "50"
   pruneMemSize: "1024"
 nimbus:
@@ -151,6 +154,11 @@ prysm:
   openRpcPort: closed
   rpcPort: "5053"
   vcContainerTag: prysmaticlabs/prysm-validator:HEAD-58df1f1-debug
+reth:
+  additionalFlags: ""
+  cache: "256"
+  containerTag: ghcr.io/paradigmxyz/reth:v0.1.0-alpha.20
+  maxPeers: "50"
 root:
   bnMetricsPort: "{{ rocketpool_eth2_metrics_port }}"
   consensusClient: nimbus
@@ -189,7 +197,6 @@ smartnode:
   useRollingRecords: "false"
   watchtowerMaxFeeOverride: "200"
   watchtowerPrioFeeOverride: "3"
-  web3StorageApiToken: {{ rocketpool_web3_storage_token | mandatory }}
 teku:
   additionalBnFlags: ""
   additionalVcFlags: ""
