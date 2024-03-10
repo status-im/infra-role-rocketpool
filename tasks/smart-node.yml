@@ -15,7 +15,7 @@
     enabled: true
 
 - name: 'Create Consul service definition'
-  include_role: name=consul-service
+  include_role: name=infra-role-consul-service
   vars:
     consul_config_name: '{{ rocketpool_node_service_name }}'
     consul_services:

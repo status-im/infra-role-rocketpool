@@ -10,6 +10,9 @@ galaxy_info:
     versions:
     - xenial
   dependencies:
-  - name: infra-role-beacon-node-linux
-    src: 'git+git@github.com:status-im/infra-role-beacon-node-linux.git'
-    scm: 'git'
+    - name: infra-role-consul-service
+      src: git+git@github.com:status-im/infra-role-consul-service.git
+      scm: git
+    - name: infra-role-beacon-node-linux
+      src: git+git@github.com:status-im/infra-role-beacon-node-linux.git
+      scm: git
