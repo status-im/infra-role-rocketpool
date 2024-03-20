@@ -12,7 +12,7 @@ rocketpool_version: 'v1.11.8'
 rocketpool_cli_sha256:    'bdf8657dce275887919956f02fe118f732689c7010f95192d7149593069d8896'
 rocketpool_daemon_sha256: '0de4c7534f883c702f55530fcda6fa23fe787948f66a213c8e31fca1767f52a3'
 rocketpool_eth1_network: 'goerli'
-rocketpool_eth1_network_ids: { mainnet: 1, goerli: 5 }
+rocketpool_eth1_network_ids: { mainnet: 1, holesky: 5 }
 rocketpool_eth1_network_id: '{{ rocketpool_eth1_network_ids[rocketpool_eth1_network] }}'
 # Required for Eth1 sync
 #rocketpool_eth1_exec_layer_jwtsecret: ~
@@ -45,7 +45,6 @@ rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008
 rocketpool_eth2_rest_port: 55052
 rocketpool_eth2_rpc_port: 59190
-rocketpool_eth2_networks: { mainnet: 'mainnet', goerli: 'prater' }
-rocketpool_eth2_network: '{{ rocketpool_eth2_networks[rocketpool_eth1_network] }}'
+rocketpool_eth2_network: 'rocketpool_eth1_network }}'
 #rocketpool_eth2_fee_recipient: ~
 rocketpool_is_native: true
