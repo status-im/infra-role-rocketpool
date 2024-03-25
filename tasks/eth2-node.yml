@@ -22,7 +22,7 @@
     beacon_node_service_path:   '{{ rocketpool_eth2_service_path }}'
     beacon_node_user:           '{{ rocketpool_user }}'
     beacon_node_group:          '{{ rocketpool_group }}'
-    beacon_node_network:        '{{ rocketpool_eth2_network }}'
+    beacon_node_network:        '{{ rocketpool_network }}'
     beacon_node_discovery_port: '{{ rocketpool_eth2_discovery_port }}'
     beacon_node_listening_port: '{{ rocketpool_eth2_libp2p_port }}'
     beacon_node_metrics_port:   '{{ rocketpool_eth2_metrics_port }}'

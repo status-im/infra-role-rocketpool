@@ -23,7 +23,7 @@ Add to your `requirements.yml` file:
 A basic configuration would look like:
 ```yaml
 rocketpool_graffiti: 'my-rocketpool-node'
-rocketpool_eth1_network: 'goerli'
+rocketpool_network: 'holesky'
 # Mandatory
 rocketpool_eth2_fee_recipient: '0x1111111111111111111111111111111111111111'
 rocketpool_eth1_exec_layer_jwtsecret: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
