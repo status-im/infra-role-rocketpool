@@ -12,6 +12,31 @@ addons-rescue-node:
   enabled: "false"
   password: ""
   username: ""
+alertmanager:
+  alertEnabled_ActiveSyncCommittee: "true"
+  alertEnabled_BeaconClientSyncComplete: "true"
+  alertEnabled_ClientSyncStatusBeacon: "true"
+  alertEnabled_ClientSyncStatusExecution: "true"
+  alertEnabled_ExecutionClientSyncComplete: "true"
+  alertEnabled_FeeRecipientChanged: "true"
+  alertEnabled_LowDiskSpaceCritical: "true"
+  alertEnabled_LowDiskSpaceWarning: "true"
+  alertEnabled_MinipoolBalanceDistributed: "true"
+  alertEnabled_MinipoolBondReduced: "true"
+  alertEnabled_MinipoolPromoted: "true"
+  alertEnabled_MinipoolStaked: "true"
+  alertEnabled_OSUpdatesAvailable: "true"
+  alertEnabled_RPUpdatesAvailable: "true"
+  alertEnabled_RecentProposal: "true"
+  alertEnabled_UpcomingProposal: "true"
+  alertEnabled_UpcomingSyncCommittee: "true"
+  containerTag: prom/alertmanager:v0.26.0
+  discordWebhookURL: ""
+  enableAlerting: "true"
+  nativeModeHost: localhost
+  nativeModePort: "9093"
+  openPort: closed
+  port: "9093"
 besu:
   additionalFlags: ""
   archiveMode: "false"
@@ -204,3 +229,4 @@ teku:
   containerTag: consensys/teku:23.6.2
   jvmHeapSize: "0"
   maxPeers: "100"
+  useSlashingProtection: "true"
