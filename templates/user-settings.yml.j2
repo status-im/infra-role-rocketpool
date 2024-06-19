@@ -110,8 +110,9 @@ fallbackPrysm:
   jsonRpcUrl: ""
 geth:
   additionalFlags: ""
+  archiveMode: "false"
   containerTag: ethereum/client-go:v1.12.0
-  enablePbss: "false"
+  evmTimeout: "5"
   maxPeers: "50"
 grafana:
   containerTag: grafana/grafana:9.4.13
@@ -142,6 +143,8 @@ mevBoost:
   openRpcPort: closed
   port: "18550"
   selectionMode: profile
+  titanGlobalEnabled: "false"
+  titanRegionalEnabled: "false"
   ultrasoundEnabled: "false"
 native:
   ccHttpUrl: http://localhost:{{ rocketpool_eth2_rest_port }}
@@ -181,6 +184,7 @@ prysm:
   vcContainerTag: prysmaticlabs/prysm-validator:HEAD-58df1f1-debug
 reth:
   additionalFlags: ""
+  archiveMode: "false"
   cache: "256"
   containerTag: ghcr.io/paradigmxyz/reth:v0.1.0-alpha.20
   maxPeers: "50"
