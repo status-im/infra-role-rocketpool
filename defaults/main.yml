@@ -29,7 +29,7 @@ rocketpool_watchtower_metrics_port: 9104
 rocketpool_eth2_engine_port: 58551
 
 # Auto Init Vote Power limit (in gwei). Opt out by setting to 0.
-votig_power_threshold: 0
+rocketpool_voting_power_threshold: 0
 
 # Generated randomly if not set
 #rocketpool_password: ~
