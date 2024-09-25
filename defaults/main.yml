@@ -8,9 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.13.5'
-rocketpool_cli_sha256:    '18bb67ebc6053b030f8ed113523b31bd00e4deb998a9dada6f6ccf012963e9c9'
-rocketpool_daemon_sha256: '2d4acba1156bbc1aa8c1a9f7aa265aa83deffa6e6d25983fec79a9411f0daa44'
+rocketpool_version: 'v1.13.8'
+rocketpool_cli_sha256:    '5999b3a48d23e7ccd11344170384bd23c94bc111cdddf7c4786a0389618d5b1f'
+rocketpool_daemon_sha256: 'aef931a629a5e8babe0c62024f27ef88c19d7486d2d0046fdb9a6c8655ee6889'
 # Required for Eth1 sync
 #rocketpool_eth1_exec_layer_jwtsecret: ~
 #rocketpool_eth1_exec_layer_authrpc_url: ~
@@ -26,6 +26,10 @@ rocketpool_node_service_name: '{{ rocketpool_service_name }}-smart-node'
 
 rocketpool_watchtower_service_name: '{{ rocketpool_service_name }}-watchtower'
 rocketpool_watchtower_metrics_port: 9104
+rocketpool_eth2_engine_port: 58551
+
+# Auto Init Vote Power limit (in gwei). Opt out by setting to 0.
+votig_power_threshold: 0
 
 # Generated randomly if not set
 #rocketpool_password: ~
