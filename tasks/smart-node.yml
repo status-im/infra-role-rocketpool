@@ -26,3 +26,13 @@
           - name: '{{ rocketpool_node_service_name }}-health'
             type: 'script'
             script: '/usr/bin/systemctl is-active {{ rocketpool_node_service_name }}'
+
+      - id:   '{{ rocketpool_node_service_name }}-metrics'
+        name: '{{ rocketpool_node_service_name }}-metrics'
+        tags: ['rocketpool', 'service', 'metrics']
+        port: '{{ rocketpool_metrics_port }}'
+        address: '{{ ansible_local.wireguard.address }}'
+        checks:
+          - name: '{{ rocketpool_node_service_name }}-metrics-health'
+            type: 'http'
+            http: 'http://localhost:{{ rocketpool_metrics_port }}/'
