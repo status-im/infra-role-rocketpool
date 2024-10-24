@@ -1,12 +1,4 @@
 ---
-# If isNative is False, the daemon doesn't take the cli options
-- name: Check if the Native flag
-  tags: isNative
-  assert:
-    that:
-      - rocketpool_is_native == True
-    fail_msg: "The flag rocketpool_is_native should be set to true"
-
 - name: Create RocketPool root settings dir
   file:
     path:  '{{ item }}'
@@ -62,6 +54,12 @@
      --native-ccHttpUrl=http://localhost:{{ rocketpool_eth2_rest_port }} \
      --native-validatorRestartCommand={{ rocketpool_service_path }}/eth2-restart.sh \
      --native-validatorStopCommand={{ rocketpool_service_path }}/eth2-stop.sh
+
+- name: Ensure native mode is enabled
+  lineinfile:
+    path: '{{ rocketpool_service_path }}/user-settings.yml'
+    regexp: '^  isNative: ".*"'
+    line:    '  isNative: "true"'
 
 - name: Save checksum of config file after
   register: rocketpool_config_after
