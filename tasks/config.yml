@@ -28,6 +28,7 @@
      --config-path={{ rocketpool_service_path }} \
      service config \
      --enableMetrics=true \
+     --enableODaoMetrics=true \
      --nodeMetricsPort={{ rocketpool_metrics_port }} \
      --watchtowerMetricsPort={{ rocketpool_watchtower_metrics_port }} \
      --bnMetricsPort={{ rocketpool_eth2_metrics_port }} \
