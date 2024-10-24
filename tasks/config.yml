@@ -1,12 +1,4 @@
 ---
-# If isNative is False, the daemon doesn't take the cli options
-- name: Check if the Native flag
-  tags: isNative
-  assert:
-    that:
-      - rocketpool_is_native == True
-    fail_msg: "The flag rocketpool_is_native should be set to true"
-
 - name: Create RocketPool root settings dir
   file:
     path:  '{{ item }}'

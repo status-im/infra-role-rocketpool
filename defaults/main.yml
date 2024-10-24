@@ -52,4 +52,3 @@ rocketpool_eth2_metrics_port: 58008
 rocketpool_eth2_rest_port: 55052
 rocketpool_eth2_rpc_port: 59190
 #rocketpool_eth2_fee_recipient: ~
-rocketpool_is_native: true
