@@ -1,4 +1,12 @@
 ---
+# If isNative is False, the daemon doesn't take the cli options
+- name: Check if the Native flag
+  tags: isNative
+  assert:
+    that:
+      - rocketpool_is_native == True
+    fail_msg: "The flag rocketpool_is_native should be set to true"
+
 - name: Create RocketPool root settings dir
   file:
     path:  '{{ item }}'
@@ -12,12 +20,19 @@
     - '{{ rocketpool_records_path }}'
     - '{{ rocketpool_validators_path }}'
 
+- name: Save checksum of config file before
+  register: rocketpool_config_before
+  stat:
+    path: '{{ rocketpool_service_path }}/user-settings.yml'
+
 # The user-settings.yml.j2 template was created based on the config created
 # by running this command during initial setup. Unnecessary unless upgrading.
 - name: Generate Rocketpool node config
   become_user: '{{ rocketpool_user }}'
+  register: wtf
   command: |
    /usr/local/bin/rocketpool-cli \
+     --allow-root
      --config-path={{ rocketpool_service_path }} \
      service config \
      --enableMetrics=true \
@@ -47,16 +62,17 @@
      --native-ccHttpUrl=http://localhost:{{ rocketpool_eth2_rest_port }} \
      --native-validatorRestartCommand={{ rocketpool_service_path }}/eth2-restart.sh \
      --native-validatorStopCommand={{ rocketpool_service_path }}/eth2-stop.sh
-  args:
-   creates: '{{ rocketpool_service_path }}/user-settings.yml'
 
-# If isNative is False, the daemon doesn't take the cli options
-- name: Check if the Native flag
-  tags: isNative
-  assert:
-    that:
-      - rocketpool_is_native == True
-    fail_msg: "The flag rocketpool_is_native should be set to true"
+- name: Save checksum of config file after
+  register: rocketpool_config_after
+  stat:
+    path: '{{ rocketpool_service_path }}/user-settings.yml'
+
+- name: Check if config file changed
+  set_fact:
+    rocketpool_config_changed: |
+      '{{ not rocketpool_config_before.stat.exists or
+          (rocketpool_config_before.stat.checksum != rocketpool_config_after.stat.checksum) }}'
 
 - name: Create wrapper scripts
   template:
@@ -84,11 +100,3 @@
     group: '{{ rocketpool_group }}'
     mode: 0400
     content: '{{ rocketpool_wallet | mandatory }}'
-
-# If isNative is False, the daemon doesn't take the cli options
-- name: Check if the Native flag
-  tags: isNative
-  assert:
-    that:
-      - rocketpool_is_native == True
-    fail_msg: "The flag rocketpool_is_native should be set to true"

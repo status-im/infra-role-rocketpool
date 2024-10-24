@@ -11,7 +11,7 @@
 - name: Restart the service
   service:
     name: '{{ rocketpool_watchtower_service_name }}.service'
-    state: 'restarted'
+    state: '{{ "restarted" if rocketpool_config_changed else "started" }}'
     enabled: true
 
 - name: 'Create Consul service definition'
