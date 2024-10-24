@@ -30,6 +30,10 @@ rocketpool_eth2_engine_port: 58551
 
 # Auto Init Vote Power limit (in gwei). Opt out by setting to 0.
 rocketpool_voting_power_threshold: 0
+# Stores attestation records for entire network in real time instead of during tree generation.
+rocketpool_rolling_records: false # EXPERIMENTAL
+rocketpool_rolling_record_checkpoint_interval: 45
+rocketpool_rolling_record_checkpoint_retention_limit: 200
 
 # Generated randomly if not set
 #rocketpool_password: ~

@@ -30,7 +30,10 @@
      --smartnode-archiveECUrl={{ rocketpool_eth1_archive_url | mandatory }} \
      --smartnode-dataPath={{ rocketpool_data_path }} \
      --smartnode-recordsPath={{ rocketpool_records_path }} \
-     --smartnode-autoInitVPThreshold= {{ rocketpool_voting_power_threshold }} \
+     --smartnode-autoInitVPThreshold={{ rocketpool_voting_power_threshold }} \
+     --smartnode-useRollingRecords={{ rocketpool_rolling_records | to_json }} \
+     --smartnode-recordCheckpointInterval={{ rocketpool_rolling_record_checkpoint_interval }} \
+     --smartnode-checkpointRetentionLimit={{ rocketpool_rolling_record_checkpoint_retention_limit }} \
      --executionClientMode=external \
      --executionClient=geth \
      --externalExecution-httpUrl={{ rocketpool_eth1_exec_layer_rpc_url | mandatory }} \
