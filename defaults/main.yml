@@ -8,9 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.13.8'
-rocketpool_cli_sha256:    '5999b3a48d23e7ccd11344170384bd23c94bc111cdddf7c4786a0389618d5b1f'
-rocketpool_daemon_sha256: 'aef931a629a5e8babe0c62024f27ef88c19d7486d2d0046fdb9a6c8655ee6889'
+rocketpool_version: 'v1.15.0'
+rocketpool_cli_sha256:    'c853bd499890b17d5dda7ea1b7fb119660c8d019746b0d3f4a5f2174de226a1d'
+rocketpool_daemon_sha256: '87ca07b83922d23793531ddd0eb4becaedac1c06f0ce4f68088b95e2e19b2d15'
 # Required for Eth1 sync
 #rocketpool_eth1_exec_layer_jwtsecret: ~
 #rocketpool_eth1_exec_layer_authrpc_url: ~
@@ -20,7 +20,6 @@ rocketpool_daemon_sha256: 'aef931a629a5e8babe0c62024f27ef88c19d7486d2d0046fdb9a6
 
 rocketpool_graffiti: 'NimbusTeam' # Nimbus-compatible graffiti string
 rocketpool_data_path:         '{{ rocketpool_service_path }}/smart-node'
-rocketpool_records_path:      '{{ rocketpool_data_path}}/records'
 rocketpool_validators_path:   '{{ rocketpool_data_path }}/validators'
 rocketpool_node_service_name: '{{ rocketpool_service_name }}-smart-node'
 
@@ -30,10 +29,8 @@ rocketpool_eth2_engine_port: 58551
 
 # Auto Init Vote Power limit (in gwei). Opt out by setting to 0.
 rocketpool_voting_power_threshold: 0
-# Stores attestation records for entire network in real time instead of during tree generation.
-rocketpool_rolling_records: false # EXPERIMENTAL
-rocketpool_rolling_record_checkpoint_interval: 45
-rocketpool_rolling_record_checkpoint_retention_limit: 200
+rocketpool_exec_layer_block_gas_limit: 30000000
+rocketpool_consensus_layer_block_gas_limit: 30000000
 
 # Generated randomly if not set
 #rocketpool_password: ~
