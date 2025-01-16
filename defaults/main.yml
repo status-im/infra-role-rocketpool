@@ -20,6 +20,7 @@ rocketpool_daemon_sha256: '87ca07b83922d23793531ddd0eb4becaedac1c06f0ce4f68088b9
 
 rocketpool_graffiti: 'NimbusTeam' # Nimbus-compatible graffiti string
 rocketpool_data_path:         '{{ rocketpool_service_path }}/smart-node'
+rocketpool_records_path:      '{{ rocketpool_data_path }}/records'
 rocketpool_validators_path:   '{{ rocketpool_data_path }}/validators'
 rocketpool_node_service_name: '{{ rocketpool_service_name }}-smart-node'
 
