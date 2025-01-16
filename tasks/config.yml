@@ -42,6 +42,9 @@
      --externalExecution-wsUrl={{ rocketpool_eth1_exec_layer_ws_url | mandatory }} \
      --executionCommon-enginePort={{ rocketpool_eth2_engine_port }} \
      --executionCommon-suggestedBlockGasLimit={{ rocketpool_exec_layer_block_gas_limit }} \
+     --useFallbackClients=true \
+     --fallbackNormal-ecHttpUrl={{ rocketpool_fallback_eth1_rpc_url }} \
+     --fallbackNormal-ccHttpUrl={{ rocketpool_fallback_eth2_api_url }} \
      --consensusClientMode=external \
      --consensusClient=nimbus \
      --consensusCommon-apiPort={{ rocketpool_eth2_rest_port }} \

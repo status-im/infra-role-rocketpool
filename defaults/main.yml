@@ -17,6 +17,9 @@ rocketpool_daemon_sha256: '87ca07b83922d23793531ddd0eb4becaedac1c06f0ce4f68088b9
 #rocketpool_eth1_exec_layer_rpc_url: ~
 #rocketpool_eth1_exec_layer_ws_url: ~
 #rocketpool_eth1_archive_url: ~
+# Fallback
+#rocketpool_fallback_eth1_rpc_url: ~
+#rocketpool_fallback_eth2_api_url: ~
 
 rocketpool_graffiti: 'NimbusTeam' # Nimbus-compatible graffiti string
 rocketpool_data_path:         '{{ rocketpool_service_path }}/smart-node'
