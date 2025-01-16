@@ -5,8 +5,8 @@
   tags: ['role::rocketpool', 'role::rocketpool:install']
 - import_tasks: config.yml
   tags: ['role::rocketpool', 'role::rocketpool:config']
-    #- import_tasks: eth2-node.yml
-    #  tags: ['role::rocketpool', 'role::rocketpool:eth2-node']
+- import_tasks: eth2-node.yml
+  tags: ['role::rocketpool', 'role::rocketpool:eth2-node']
 - import_tasks: smart-node.yml
   tags: ['role::rocketpool', 'role::rocketpool:smart-node']
 - import_tasks: watchtower.yml
