@@ -31,7 +31,6 @@
      --enableODaoMetrics=true \
      --nodeMetricsPort={{ rocketpool_metrics_port }} \
      --watchtowerMetricsPort={{ rocketpool_watchtower_metrics_port }} \
-     --bnMetricsPort={{ rocketpool_eth2_metrics_port }} \
      --smartnode-network=mainnet \
      --smartnode-archiveECUrl={{ rocketpool_eth1_archive_url | mandatory }} \
      --smartnode-dataPath={{ rocketpool_data_path }} \
@@ -40,22 +39,15 @@
      --executionClient=geth \
      --externalExecution-httpUrl={{ rocketpool_eth1_exec_layer_rpc_url | mandatory }} \
      --externalExecution-wsUrl={{ rocketpool_eth1_exec_layer_ws_url | mandatory }} \
-     --executionCommon-enginePort={{ rocketpool_eth2_engine_port }} \
-     --executionCommon-suggestedBlockGasLimit={{ rocketpool_exec_layer_block_gas_limit }} \
      --useFallbackClients=true \
      --fallbackNormal-ecHttpUrl={{ rocketpool_fallback_eth1_rpc_url }} \
      --fallbackNormal-ccHttpUrl={{ rocketpool_fallback_eth2_api_url }} \
      --consensusClientMode=external \
      --consensusClient=nimbus \
-     --consensusCommon-apiPort={{ rocketpool_eth2_rest_port }} \
      --consensusCommon-graffiti={{ rocketpool_graffiti }} \
-     --consensusCommon-p2pPort={{ rocketpool_eth2_libp2p_port }} \
-     --consensusCommon-suggestedBlockGasLimit={{ rocketpool_consensus_layer_block_gas_limit }} \
      --native-ecHttpUrl={{ rocketpool_eth1_exec_layer_rpc_url | mandatory }} \
      --native-consensusClient=nimbus \
-     --native-ccHttpUrl=http://localhost:{{ rocketpool_eth2_rest_port }} \
-     --native-validatorRestartCommand={{ rocketpool_service_path }}/eth2-restart.sh \
-     --native-validatorStopCommand={{ rocketpool_service_path }}/eth2-stop.sh
+     --native-ccHttpUrl={{ rocketpool_eth2_rest_api_url | mandatory }} \
 
 - name: Ensure native mode is enabled
   lineinfile:
@@ -76,14 +68,10 @@
 
 - name: Create wrapper scripts
   template:
-    src:   'scripts/{{ item }}.j2'
-    dest:  '{{ rocketpool_service_path }}/{{ item }}'
+    src:   'scripts/cli.sh.j2'
+    dest:  '{{ rocketpool_service_path }}/cli.sh'
     owner: '{{ rocketpool_user }}'
     mode:  0755
-  with_items:
-    - 'cli.sh'
-    - 'eth2-stop.sh'
-    - 'eth2-restart.sh'
 
 - name: Create RocketPool password file
   copy:

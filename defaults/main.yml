@@ -12,11 +12,10 @@ rocketpool_version: 'v1.16.0'
 rocketpool_cli_sha256:    '1be4341da6ec0577d7f1885a9df0015b4be1b009b45e8faa5d4d23d739bd6cd2'
 rocketpool_daemon_sha256: 'a0e3ced5c112ef10aed98c2dd5705c2264419524fd4ebc96454144b5a2aa0674'
 # Required for Eth1 sync
-#rocketpool_eth1_exec_layer_jwtsecret: ~
-#rocketpool_eth1_exec_layer_authrpc_url: ~
 #rocketpool_eth1_exec_layer_rpc_url: ~
 #rocketpool_eth1_exec_layer_ws_url: ~
 #rocketpool_eth1_archive_url: ~
+#rocketpool_eth2_rest_api_url: ~
 # Fallback
 #rocketpool_fallback_eth1_rpc_url: ~
 #rocketpool_fallback_eth2_api_url: ~
@@ -29,27 +28,17 @@ rocketpool_node_service_name: '{{ rocketpool_service_name }}-smart-node'
 
 rocketpool_watchtower_service_name: '{{ rocketpool_service_name }}-watchtower'
 rocketpool_watchtower_metrics_port: 9104
-rocketpool_eth2_engine_port: 58551
 
 # Auto Init Vote Power limit (in gwei). Opt out by setting to 0.
 rocketpool_voting_power_threshold: 0
-rocketpool_exec_layer_block_gas_limit: 30000000
-rocketpool_consensus_layer_block_gas_limit: 30000000
 
 # Generated randomly if not set
 #rocketpool_password: ~
 #rocketpool_wallet: ~
 rocketpool_password_file: '{{ rocketpool_data_path }}/password'
 rocketpool_wallet_file: '{{ rocketpool_data_path }}/wallet'
-
-rocketpool_network: 'holesky'
 # Nimbus Eth2 Beacon Node
-rocketpool_eth2_service_name: '{{ rocketpool_service_name }}-eth2-node'
-rocketpool_eth2_service_path: '{{ rocketpool_service_path }}/eth2-node'
-rocketpool_eth2_repo_branch: 'stable'
 rocketpool_eth2_libp2p_port: 59001
 rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008
 rocketpool_eth2_rest_port: 55052
-rocketpool_eth2_rpc_port: 59190
-#rocketpool_eth2_fee_recipient: ~
