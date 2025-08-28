@@ -32,6 +32,9 @@ rocketpool_watchtower_metrics_port: 9104
 # Auto Init Vote Power limit (in gwei). Opt out by setting to 0.
 rocketpool_voting_power_threshold: 0
 
+# Unnecessary for oDAO nodes but CLI tool prompts for it
+rocketpool_block_gas_limit: 45000000
+
 # Generated randomly if not set
 #rocketpool_password: ~
 #rocketpool_wallet: ~
