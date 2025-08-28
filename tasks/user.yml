@@ -19,4 +19,3 @@
   with_items:
     - 'rocketpool-builds'
     - 'rocketpool-login'
-    - 'rocketpool-restarts-nimbus'
