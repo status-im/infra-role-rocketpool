@@ -41,7 +41,6 @@
       --smartnode-network=mainnet \
       --smartnode-archiveECUrl={{ rocketpool_eth1_archive_url | mandatory }} \
       --smartnode-dataPath={{ rocketpool_data_path }} \
-      --smartnode-autoInitVPThreshold={{ rocketpool_voting_power_threshold }} \
       --executionClientMode=external \
       --executionClient=geth \
       --externalExecution-httpUrl={{ rocketpool_eth1_exec_layer_rpc_url | mandatory }} \
