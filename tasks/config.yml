@@ -20,6 +20,12 @@
 # The user-settings.yml.j2 template was created based on the config created
 # by running this command during initial setup. Unnecessary unless upgrading.
 - name: Generate Rocketpool node config
+  # Tool fails silently on config generation when flag is missing
+  # https://github.com/rocket-pool/smartnode/issues/1113
+  register: rocketpool_service_config
+  failed_when:
+    - '"flag provided but not defined" in rocketpool_service_config.stdout'
+    - '"Incorrect Usage" in rocketpool_service_config.stderr'
   become_user: '{{ rocketpool_user }}'
   # WARNING: This command can block asking for user input sometimes.
   timeout: 5
