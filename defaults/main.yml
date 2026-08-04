@@ -8,9 +8,9 @@ rocketpool_group: 'rocketpool'
 rocketpool_metrics_addr: '0.0.0.0'
 rocketpool_metrics_port: 9102
 
-rocketpool_version: 'v1.20.5'
-rocketpool_cli_sha256:    '7010e1f635f19703192a14d280073e32fdbe7a314f83c2ad548a114e61da7062'
-rocketpool_daemon_sha256: 'c2c49cfec5ed4cfa8dfba17ec3bb53714fd9e6d568055ad6fd7e6ba51e8d8924'
+rocketpool_version: 'v1.20.8'
+rocketpool_cli_sha256:    'dc40be99f10828d8af48f1446216d9e7d99a542bcbeae9a4e478893640d015c7'
+rocketpool_daemon_sha256: '1345dce30717671bf14b65785fc7ada8356ffd1317151fdd2f273e5c21d7128f'
 # Required for Eth1 sync
 #rocketpool_eth1_exec_layer_rpc_url: ~
 #rocketpool_eth1_exec_layer_ws_url: ~
