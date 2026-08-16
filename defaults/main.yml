@@ -11,6 +11,8 @@ rocketpool_metrics_port: 9102
 rocketpool_version: 'v1.22.1'
 rocketpool_cli_sha256:    '6209199ceb0a681a0171c6d2464c9a23ce36a9345c4fbc5b1310d9fb25afc5e7'
 rocketpool_daemon_sha256: '6690a8aeb8ac784525c83dab525354d0e6dff06cf00066ceda718ea1371d6596'
+rocketpool_treegen_sha256: '71da3207191e9164a1481f56716d73e1f1c3cc783d6f38d6174d9e793d438044'
+
 # Required for Eth1 sync
 #rocketpool_eth1_exec_layer_rpc_url: ~
 #rocketpool_eth1_exec_layer_ws_url: ~
@@ -42,3 +44,18 @@ rocketpool_eth2_libp2p_port: 59001
 rocketpool_eth2_discovery_port: 59001
 rocketpool_eth2_metrics_port: 58008
 rocketpool_eth2_rest_port: 55052
+
+# Rewards tree generation dry-run timer
+# https://github.com/rocket-pool/smartnode/tree/master/treegen
+rocketpool_treegen_service_name: '{{ rocketpool_service_name }}-treegen'
+rocketpool_treegen_output_path: '{{ rocketpool_service_path }}/treegen'
+# Treegen has no fallback EC support and needs state for targeted block.
+rocketpool_treegen_ec_url: '{{ rocketpool_eth1_archive_url }}'
+rocketpool_treegen_bn_url: '{{ rocketpool_eth2_rest_api_url }}'
+# Rewards intervals are 28 days, weekly runs ensure a dry-run before checkpoint.
+rocketpool_treegen_timer_frequency: 'weekly'
+# Generation without rolling records can take many hours.
+rocketpool_treegen_timer_timeout_sec: 43200
+rocketpool_treegen_nice_priority: 19
+rocketpool_treegen_ionice_class: 'best-effort'
+rocketpool_treegen_ionice_priority: 7

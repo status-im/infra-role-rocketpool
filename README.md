@@ -58,5 +58,24 @@ All config files and data are created in `/data/rocketpool`. It also contains:
 * `cli.sh` - Wrapper script which simplifies use of CLI tool.
 * `eth2-stop.sh` - Wrapper script which stops the Beacon node service.
 * `eth2-restart.sh` - Wrapper script which restarts the Beacon node service.
+* `treegen.sh` - Wrapper script which does a dry-run of rewards tree generation.
 
 The node wallet can be managed manually by executing commands such as `cli.sh wallet restore` or `cli.sh wallet init`.
+
+# Rewards Tree Dry-Run
+
+The role also installs the [`treegen`](https://github.com/rocket-pool/smartnode/tree/master/treegen) tool and a Systemd timer which periodically does a dry-run of rewards tree generation for the current interval.
+The purpose is to verify ahead of the RPL rewards checkpoint that our Execution and Beacon node endpoints are capable of generating the rewards tree.
+```yaml
+rocketpool_treegen_ec_url: '{{ rocketpool_eth1_archive_url }}'
+rocketpool_treegen_bn_url: '{{ rocketpool_eth2_rest_api_url }}'
+rocketpool_treegen_timer_frequency: 'weekly'
+```
+Note that `treegen` has no fallback endpoint support and the Execution Client must have state for the targeted block, hence the archive node URL default.
+
+Results of the latest run are stored in `/data/rocketpool/treegen`, previous results are removed before each run.
+```
+sudo systemctl list-timers rocketpool-treegen.timer
+sudo systemctl start rocketpool-treegen.service
+sudo journalctl -fu rocketpool-treegen.service
+```

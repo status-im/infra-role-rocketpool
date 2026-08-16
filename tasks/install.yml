@@ -11,7 +11,7 @@
     checksum: 'sha256:{{ rocketpool_daemon_sha256 }}'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
-    mode: 0755
+    mode: '0o755'
 
 - name: Download Rocket Pool CLI
   get_url:
@@ -20,14 +20,24 @@
     checksum: 'sha256:{{ rocketpool_cli_sha256 }}'
     owner: '{{ rocketpool_user }}'
     group: '{{ rocketpool_group }}'
-    mode: 0755
+    mode: '0o755'
+
+- name: Download Rocket Pool treegen
+  get_url:
+    url: 'https://github.com/rocket-pool/smartnode/releases/download/{{ rocketpool_version }}/treegen-linux-amd64'
+    dest: '/opt/rocketpool/{{ rocketpool_version }}/bin/treegen-linux-amd64'
+    checksum: 'sha256:{{ rocketpool_treegen_sha256 }}'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode: '0o755'
 
 - name: Symlink RocketPool binaries
   file:
     state: link
     src: '/opt/rocketpool/{{ rocketpool_version }}/bin/{{ item.value }}'
     dest: '/usr/local/bin/{{ item.key }}'
-    mode: 0755
+    mode: '0o755'
   with_dict:
-    rocketpool-daemon: 'rocketpool-daemon-linux-amd64'
-    rocketpool-cli:    'rocketpool-cli-linux-amd64'
+    rocketpool-daemon:  'rocketpool-daemon-linux-amd64'
+    rocketpool-cli:     'rocketpool-cli-linux-amd64'
+    rocketpool-treegen: 'treegen-linux-amd64'

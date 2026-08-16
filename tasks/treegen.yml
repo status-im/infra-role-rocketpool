@@ -1,0 +1,31 @@
+---
+- name: Create treegen output directory
+  file:
+    state: directory
+    path: '{{ rocketpool_treegen_output_path }}'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode: '0o750'
+
+- name: Create treegen wrapper script
+  template:
+    src:   'scripts/treegen.sh.j2'
+    dest:  '{{ rocketpool_service_path }}/treegen.sh'
+    owner: '{{ rocketpool_user }}'
+    group: '{{ rocketpool_group }}'
+    mode:  '0o750'
+
+- name: Create timer for treegen dry-run
+  include_role: name=infra-role-systemd-timer
+  vars:
+    systemd_timer_name: '{{ rocketpool_treegen_service_name }}'
+    systemd_timer_description: 'Rocket Pool rewards tree generation dry-run'
+    systemd_timer_user: '{{ rocketpool_user }}'
+    systemd_timer_script_path: '{{ rocketpool_service_path }}/treegen.sh'
+    systemd_timer_frequency: '{{ rocketpool_treegen_timer_frequency }}'
+    systemd_timer_timeout_sec: '{{ rocketpool_treegen_timer_timeout_sec }}'
+    systemd_timer_nice_priority: '{{ rocketpool_treegen_nice_priority }}'
+    systemd_timer_ionice_class: '{{ rocketpool_treegen_ionice_class }}'
+    systemd_timer_ionice_priority: '{{ rocketpool_treegen_ionice_priority }}'
+    # Avoid kicking off hours-long generation on every Ansible run.
+    systemd_timer_start_on_creation: false

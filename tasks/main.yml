@@ -9,3 +9,5 @@
   tags: ['role::rocketpool', 'role::rocketpool:smart-node']
 - import_tasks: watchtower.yml
   tags: ['role::rocketpool', 'role::rocketpool:watchtower']
+- import_tasks: treegen.yml
+  tags: ['role::rocketpool', 'role::rocketpool:treegen']

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Only the latest dry-run is of interest, drop artifacts from previous run.
+rm -f '{{ rocketpool_treegen_output_path | mandatory }}'/*.json
+
+exec /usr/local/bin/rocketpool-treegen \
+  --ec-endpoint='{{ rocketpool_treegen_ec_url | mandatory }}' \
+  --bn-endpoint='{{ rocketpool_treegen_bn_url | mandatory }}' \
+  --output-dir='{{ rocketpool_treegen_output_path }}'

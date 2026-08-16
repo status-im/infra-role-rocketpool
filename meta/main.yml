@@ -16,3 +16,6 @@ galaxy_info:
     - name: infra-role-beacon-node-linux
       src: git+git@github.com:status-im/infra-role-beacon-node-linux.git
       scm: git
+    - name: infra-role-systemd-timer
+      src: git+git@github.com:status-im/infra-role-systemd-timer.git
+      scm: git
